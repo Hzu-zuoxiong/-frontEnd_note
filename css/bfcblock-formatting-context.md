@@ -67,7 +67,7 @@ BFC全称为Block Formatting Context，即块格式化上下文。块格式化�
 
 ```
 .BFC {
-    	overflow: hidden;
+        overflow: hidden;
 }
 
 <div class="box BFC">
@@ -92,4 +92,12 @@ BFC全称为Block Formatting Context，即块格式化上下文。块格式化�
 ## 总结
 
 在实际中，利用BFC可以闭合浮动，防止与浮动元素重叠，也可以利用BFC包含一个元素，防止这个元素与BFC外的元素发生margin坍塌。
+
+
+
+## 参考：
+
+[http://www.html-js.com/article/1866](http://www.html-js.com/article/1866)
+
+[https://juejin.im/post/59b73d5bf265da064618731d](#)
 
