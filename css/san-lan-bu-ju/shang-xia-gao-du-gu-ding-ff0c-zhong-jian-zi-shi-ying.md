@@ -5,7 +5,7 @@
 * 定位布局
 * flex布局
 
-定位布局：
+## 定位布局：
 
 ```css
 <section class="layout">
@@ -48,7 +48,7 @@
 </section>
 ```
 
-flex布局：
+## flex布局：
 
 ```css
 <section class="layout">
@@ -93,6 +93,8 @@ flex布局：
     </article>
 </section>
 ```
+
+## 效果演示：![](/assets/上下高度固定，中间自适应.png)
 
 
 
