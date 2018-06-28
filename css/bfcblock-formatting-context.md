@@ -6,24 +6,21 @@ BFC全称为Block Formatting Context，即块格式化上下文。块格式化�
 
 ## BFC的创建方法
 
-1. 根元素或其他包含它的元素；
-2. 浮动（元素的float不为none）；
-3. 绝对定位元素（元素的position为absolute或fixed）；
-4. 行内块（display: inline-block）；
-5. 表格单元格（display: table-cell，HTML表格单元格默认属性）；
-6. overflow的值不为visible的元素；
-7. 弹性盒（display: flex 或 inline-flex）；
+1. 浮动（元素的float不为none）；
+2. 绝对定位元素（元素的position为absolute或fixed）；
+3. 行内块（display: inline-block）；
+4. 表格单元格（display: table-cell，HTML表格单元格默认属性）；
+5. overflow的值不为visible的元素；
+6. 弹性盒（display: flex 或 inline-flex）；
 
 其中，最常见的为overflow: hidden、float: left/right、position: absolute。
 
-## BFC的效果
+## BFC的原理
 
-1. 内部的盒会在垂直方向一个接一个排列（看作常规流）；
-2. 处于同一个BFC中元素相互影响，可能会发生margin崩塌；
-3. 每个元素的margin box的左边，与容器块border box的左边想接触，浮动也是如此；
-4. BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素；
-5. 计算BFC高度时，考虑BFC所包含的所有元素，浮动也要参与计算；
-6. 浮动盒区域不叠加在BFC上。
+1. BFC元素垂直方向的边距发生重叠；
+2. BFC的区域不会与浮动元素的box重叠；
+3. BFC就是页面上的一个独立容器，容器里面的子元素不会影响到外面的元素；
+4. 计算BFC高度时，浮动元素也要参与计算；
 
 ## 实际代码演示
 
@@ -92,8 +89,6 @@ BFC全称为Block Formatting Context，即块格式化上下文。块格式化�
 ## 总结
 
 在实际中，利用BFC可以闭合浮动，防止与浮动元素重叠，也可以利用BFC包含一个元素，防止这个元素与BFC外的元素发生margin坍塌。
-
-
 
 ## 参考：
 
