@@ -1,7 +1,5 @@
 # frontEnd\_note
 
-
-
 ## HTML
 
 ## CSS
@@ -16,7 +14,9 @@
 
 [上下高度固定，中间自适应](/css/san-lan-bu-ju/shang-xia-gao-du-gu-ding-ff0c-zhong-jian-zi-shi-ying.md)
 
-## JS
+## JavaScript
+
+[DOM事件](/javascript/domshi-jian.md)
 
 ## Browser
 
