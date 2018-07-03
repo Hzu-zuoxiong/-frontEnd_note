@@ -15,6 +15,7 @@
     * [上下高度固定，中间自适应](css/san-lan-bu-ju/shang-xia-gao-du-gu-ding-ff0c-zhong-jian-zi-shi-ying.md)
 * [JavaScript](javascript.md)
   * [DOM事件](javascript/domshi-jian.md)
+  * [定时器工作机制](javascript/ding-shi-qi-gong-zuo-ji-zhi.md)
 * [Browser](browser.md)
 * [Network](ji-suan-ji-wang-luo.md)
   * [HTTP](browser/http.md)
