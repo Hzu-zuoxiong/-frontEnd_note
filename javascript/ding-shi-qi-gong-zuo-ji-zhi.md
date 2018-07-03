@@ -103,3 +103,5 @@ function heavyTask() {
 
 ![](/assets/setInterval.png)
 
+参考链接：[https://segmentfault.com/a/1190000003764106](https://segmentfault.com/a/1190000003764106)
+

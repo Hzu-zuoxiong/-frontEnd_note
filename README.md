@@ -18,11 +18,11 @@
 
 [DOM事件](/javascript/domshi-jian.md)
 
+[定时器工作机制](/javascript/ding-shi-qi-gong-zuo-ji-zhi.md)
+
 ## Browser
 
 ## Network
 
 [HTTP](/browser/http.md)
-
-
 
