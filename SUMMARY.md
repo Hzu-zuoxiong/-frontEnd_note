@@ -19,4 +19,6 @@
 * [Browser](browser.md)
 * [Network](ji-suan-ji-wang-luo.md)
   * [HTTP](browser/http.md)
+* [Sort](sort.md)
+  * [快速排序](sort/kuai-su-pai-xu.md)
 
