@@ -1,5 +1,7 @@
 # frontEnd\_note
 
+本书用来记录自己所学前端的知识点。书籍地址：[https://hzu-zuoxiong.gitbooks.io/frontend\_note/content/](https://hzu-zuoxiong.gitbooks.io/frontend_note/content/)
+
 ## HTML
 
 ## CSS
