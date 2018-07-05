@@ -16,7 +16,7 @@
 * [JavaScript](javascript.md)
   * [变量提升](javascript/bian-liang-ti-sheng.md)
   * [DOM事件](javascript/domshi-jian.md)
-  * [定时器工作机制](javascript/ding-shi-qi-gong-zuo-ji-zhi.md)
+  * [定时器](javascript/ding-shi-qi-gong-zuo-ji-zhi.md)
   * [Event Loop](javascript/event-loop.md)
 * [Browser](browser.md)
 * [Network](ji-suan-ji-wang-luo.md)
