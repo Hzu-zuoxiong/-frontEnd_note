@@ -18,6 +18,7 @@
   * [DOM事件](javascript/domshi-jian.md)
   * [定时器](javascript/ding-shi-qi-gong-zuo-ji-zhi.md)
   * [Event Loop](javascript/event-loop.md)
+  * [错误处理](javascript/cuo-wu-chu-li.md)
 * [Browser](browser.md)
 * [Network](ji-suan-ji-wang-luo.md)
   * [HTTP](browser/http.md)
