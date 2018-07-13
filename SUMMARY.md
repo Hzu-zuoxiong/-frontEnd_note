@@ -26,4 +26,5 @@
   * [TCP/IP](browser/tcpip.md)
 * [Sort](sort.md)
   * [快速排序](sort/kuai-su-pai-xu.md)
+  * [冒泡排序](sort/mao-pao-pai-xu.md)
 
