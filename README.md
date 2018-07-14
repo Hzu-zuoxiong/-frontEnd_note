@@ -38,5 +38,7 @@
 
 [冒泡排序](/sort/mao-pao-pai-xu.md)
 
+[插入排序](/sort/cha-ru-pai-xu.md)
+
 [快速排序](/sort/kuai-su-pai-xu.md)
 
