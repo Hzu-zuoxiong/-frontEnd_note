@@ -21,6 +21,8 @@
   * [错误处理](javascript/cuo-wu-chu-li.md)
   * [this、apply、call、bind](javascript/thisapplycallbind.md)
   * [防抖与节流](javascript/fang-dou-yu-jie-liu.md)
+* [JS算法题](jssuan-fa-ti.md)
+  * [算法专题一](jssuan-fa-ti/suan-fa-zhuan-ti-yi.md)
 * [Browser](browser.md)
   * [URL输入全过程](browser/urlshu-ru-quan-guo-cheng.md)
   * [浏览器缓存](browser/liu-lan-qi-huan-cun.md)
