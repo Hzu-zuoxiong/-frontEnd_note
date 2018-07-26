@@ -19,7 +19,7 @@ Promise也有缺点：
 
 Promise构造函数接收一个函数作为参数，该函数的两个参数分别是resolve和reject，它们是两个函数，由JS引擎提供。
 
-Promise实例生成之后，可以用then方法分别指定resolved状态和rejected状态的回调函数。
+Promise实例生成之后，可以用then方法分别指定resolved状态和rejected状态的回调函数。then方法返回一个新的Promise实例，因此可以采用链式写法。
 
 ```js
 // Promise新建后会立即执行
@@ -41,6 +41,7 @@ promise.then(function (value) {
 
 console.log('Hi');
 
+// 输出结果
 // Promise
 // Hi
 // resolve
