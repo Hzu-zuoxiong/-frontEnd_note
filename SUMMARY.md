@@ -22,6 +22,7 @@
   * [this、apply、call、bind](javascript/thisapplycallbind.md)
   * [防抖与节流](javascript/fang-dou-yu-jie-liu.md)
   * [Promise](javascript/promise.md)
+  * [Generator](javascript/generator.md)
 * [JS算法题](jssuan-fa-ti.md)
   * [算法专题一](jssuan-fa-ti/suan-fa-zhuan-ti-yi.md)
 * [Browser](browser.md)

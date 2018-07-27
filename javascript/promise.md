@@ -94,5 +94,5 @@ promise.then(result => {···})
     .finally(() => {···});
 ```
 
-
+参考链接：[http://es6.ruanyifeng.com/\#docs/promise](http://es6.ruanyifeng.com/#docs/promise)
 
