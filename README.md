@@ -22,9 +22,19 @@
 
 [DOM事件](/javascript/domshi-jian.md)
 
-[定时器工作机制](/javascript/ding-shi-qi-gong-zuo-ji-zhi.md)
+[定时器](/javascript/ding-shi-qi-gong-zuo-ji-zhi.md)
 
 [Event Loop](/javascript/event-loop.md)
+
+[错误处理](/javascript/cuo-wu-chu-li.md)
+
+[this、apply、call、bind](/javascript/thisapplycallbind.md)
+
+[防抖与节流](/javascript/fang-dou-yu-jie-liu.md)
+
+[Promise](/javascript/promise.md)
+
+[Generator](/javascript/generator.md)
 
 ## Browser
 
