@@ -25,6 +25,7 @@
   * [Promise](javascript/promise.md)
   * [Generator](javascript/generator.md)
   * [async 函数](javascript/async-han-shu.md)
+  * [Class](javascript/class.md)
 * [JS算法题](jssuan-fa-ti.md)
   * [算法专题一](jssuan-fa-ti/suan-fa-zhuan-ti-yi.md)
 * [Browser](browser.md)
