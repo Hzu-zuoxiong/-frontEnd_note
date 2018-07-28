@@ -32,6 +32,8 @@
 
 [防抖与节流](/javascript/fang-dou-yu-jie-liu.md)
 
+## ECMAScript6
+
 [Promise](/javascript/promise.md)
 
 [Generator](/javascript/generator.md)
