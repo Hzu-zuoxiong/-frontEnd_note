@@ -38,6 +38,8 @@
 
 [Generator](/javascript/generator.md)
 
+[async 函数](/javascript/async-han-shu.md)
+
 ## Browser
 
 [浏览器缓存](/browser/liu-lan-qi-huan-cun.md)
