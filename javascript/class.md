@@ -237,9 +237,13 @@ Class内部调用new.target，返回当前Class。**注：子类继承父类时�
 
 ## Class的继承
 
+### 简介
+
 Class可以通过extends关键字实现继承，比ES5的通过修改原型链要清晰方便。**super关键字表示父类的构造函数**，用来新建父类的this对象。**子类必须在constructor方法中调用super方法**，否则新建实例时会报错。因为子类的this对象，必须先通过父类的构造函数完成塑造，得到与父类同样的实例属性和方法，然后再对其进行加工，加上子类自己的实例属性和方法。
 
 ES5中的继承，实质是先创造子类的实例对象this，然后再将父类的方法添加到this上面。ES6的继承机制完全不同，实质是先将父类实例对象的属性和方法，加到this上面（所以必须先调用super方法），再用子类的构造函数修改this。
+
+可以用Object.getPrototypeOf\(\)判断一个类是否继承了另一个类。
 
 ```js
 class ColorPoint extends Point {
@@ -252,7 +256,132 @@ class ColorPoint extends Point {
     return this.color + ' ' + super.toString(); // 调用父类的toString()
   }
 }
+
+Object.getPrototypeOf(ColorPoint) === Point
+// true
 ```
 
+### super关键字
 
+super关键字，**既可以当作函数使用，也可以当作对象使用**。作为函数时，super\(\)只能用在子类的构造函数之中，用在其他会报错。
+
+* super作为函数调用时，代表父类的构造函数。（**子类的构造函数必须执行一次super函数**）。super虽然代表父类的构造函数，但返回的是子类的实例，即**super内部的this指向子类**。因此super\(\)相当于A.prototype.constructor.call\(this\)。
+* super作为对象时，在普通方法中，指向父类的原型对象；在静态方法中，指向父类。（super指向父类的原型对象，所以**定义在父类实例上的方法或属性是无法通过super调用的**）。
+
+```js
+class A {
+  constructor() {
+    this.p = 2;
+    console.log(new.target.name);
+  }
+}
+class B extends A {
+  constructor() {
+    super();
+  }
+  get m() {
+    return super.p;
+  }
+}
+// super内部的this指向子类
+new A() // A
+new B() // B
+
+// 父类实例的属性和方法无法获取
+let b = new B();
+b.m // undefined
+
+```
+
+super内部的this指向当前子类实例，如果**通过super对某个属性赋值，这时super就是this，赋值的属性会变成子类实例的属性**。
+
+```js
+class B extends A {
+  constructor() {
+    super();
+    this.x = 2;
+    super.x = 3;
+    console.log(super.x); // undefined
+    console.log(this.x); // 3
+  }
+}
+```
+
+注：使用super的时候，**必须显式指定是作为函数、还是作为对象使用**，否则会报错。
+
+```js
+console.log(super); // 报错
+console.log(super.valueOf() instanceof B); // true
+```
+
+由于对象总是继承其他对象的，所以**可以在任意一个对象中，使用super关键字**。
+
+### 原生构造函数的继承
+
+原生构造函数是指语言内置的构造函数，通常用来生成数据结构。ECMAScript的原生构造函数：
+
+* Boolean\(\)
+* Number\(\)
+* String\(\)
+* Array\(\)
+* Date\(\)
+* Function\(\)
+* RegExp\(\)
+* Error\(\)
+* Object\(\)
+
+以前，原生构造函数是无法继承的。因为子类无法获得原生构造函数的内部属性，通过Array.apply\(\)或者分配给原型对象都不行。原生构造函数会忽略apply方法传入的this，也就是原生构造函数的this无法绑定，导致无法获取内部属性。ES5 是先新建子类的实例对象this，再将父类的属性添加到子类上，由于父类的内部属性无法获取，导致无法继承原生的构造函数。
+
+ES6允许继承原生构造函数定义子类，因为ES6是先新建父类的实例对象this，然后再用子类的构造函数修饰this，使得父类的所有行为都可以继承。
+
+```js
+class MyArray extends Array {
+  constructor(...args) {
+    super(...args);
+  }
+}
+
+var arr = new MyArray();
+arr[0] = 12;
+arr.length // 1
+
+arr.length = 0;
+arr[0] // undefined
+```
+
+注：继承Object的子类，有一个行为差异。
+
+```js
+class NewObj extends Object{
+  constructor(){
+    super(...arguments);
+  }
+}
+var o = new NewObj({attr: true});
+o.attr === true  // false
+```
+
+上面代码中，`NewObj`继承了`Object`，但是无法通过`super`
+
+方法向父类
+
+`Object`
+
+传参。这是因为 ES6 改变了
+
+`Object`
+
+构造函数的行为，一旦发现
+
+`Object`
+
+方法不是通过
+
+`new Object()`
+
+这种形式调用，ES6 规定
+
+`Object`
+
+构造函数会忽略参数。
 
