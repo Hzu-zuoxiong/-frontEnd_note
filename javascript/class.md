@@ -290,7 +290,6 @@ new B() // B
 // 父类实例的属性和方法无法获取
 let b = new B();
 b.m // undefined
-
 ```
 
 super内部的this指向当前子类实例，如果**通过super对某个属性赋值，这时super就是this，赋值的属性会变成子类实例的属性**。
@@ -361,27 +360,5 @@ var o = new NewObj({attr: true});
 o.attr === true  // false
 ```
 
-上面代码中，`NewObj`继承了`Object`，但是无法通过`super`
-
-方法向父类
-
-`Object`
-
-传参。这是因为 ES6 改变了
-
-`Object`
-
-构造函数的行为，一旦发现
-
-`Object`
-
-方法不是通过
-
-`new Object()`
-
-这种形式调用，ES6 规定
-
-`Object`
-
-构造函数会忽略参数。
+上面代码中，`NewObj`继承了`Object`，但是无法通过`super`方法向父类`Object`传参。这是因为 ES6 改变了`Object`构造函数的行为，一旦发现`Object`方法不是通过`new Object()`这种形式调用，ES6 规定`Object`构造函数会忽略参数。
 
