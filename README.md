@@ -34,11 +34,17 @@
 
 ## ECMAScript6
 
+[let和const](/javascript/lethe-const.md)
+
+[变量的解构赋值](/javascript/bian-liang-de-jie-gou-fu-zhi.md)
+
 [Promise](/javascript/promise.md)
 
 [Generator](/javascript/generator.md)
 
 [async 函数](/javascript/async-han-shu.md)
+
+[Class](/javascript/class.md)
 
 ## Browser
 
