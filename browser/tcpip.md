@@ -8,6 +8,15 @@ TCP/IP协议将应用层、表示层、会话层合并为应用层，物理层�
 
 ![](/assets/TCP/IP.png)
 
+## TCP与UDP基本区别
+
+* 基于连接与无连接
+* TCP要求系统资源较多，UDP较少
+* UDP结构较简单
+* 流模式与数据报模式
+* TCP保证数据正确性，UDP可能丢包
+* TCP保证数据顺序，UDP不保证
+
 ## 三次握手
 
 客户端和服务端在进行HTTP请求和返回的工程中，需要创建一个TCP connection（由客户端发起），HTTP不存在连接的概念，只有请求和响应。请求和响应都是数据包，它们之间的传输通道就是TCP connection。![](/assets/TCP.png)
