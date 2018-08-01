@@ -22,6 +22,7 @@
   * [this、apply、call、bind](javascript/thisapplycallbind.md)
   * [防抖与节流](javascript/fang-dou-yu-jie-liu.md)
 * ECMAScript6
+  * [let和const](javascript/lethe-const.md)
   * [Promise](javascript/promise.md)
   * [Generator](javascript/generator.md)
   * [async 函数](javascript/async-han-shu.md)
