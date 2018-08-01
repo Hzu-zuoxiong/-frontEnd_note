@@ -16,7 +16,7 @@ e.preventDefault()
 // 阻止事件冒泡
 e.stopPropagation() 
 //按钮绑定了两个click事件A、B，希望点击A之后加上这句话，就可以阻止B的执行。
-e.stopImmediatePropagation() 
+e.stopImmediatePropagation()
 ```
 
 ## DOM事件模型：
