@@ -362,3 +362,78 @@ o.attr === true  // false
 
 上面代码中，`NewObj`继承了`Object`，但是无法通过`super`方法向父类`Object`传参。这是因为 ES6 改变了`Object`构造函数的行为，一旦发现`Object`方法不是通过`new Object()`这种形式调用，ES6 规定`Object`构造函数会忽略参数。
 
+## 修饰器（Decorator）
+
+**修饰器只能用于类和类的方法**，不能用于函数，因为存在函数提升。
+
+### 类的修饰
+
+修饰器是一个对类进行处理的函数。修饰器函数的**第一个参数，就是所要修饰的目标类**。如果一个参数不够用，可以在修饰器外面再封装一层函数。若像添加实例属性，可以通过目标类的prototype对象操作。
+
+```js
+// 为类添加一个静态属性
+function testable(isTestable) {
+  return function(target) {
+    target.isTestable = isTestable;
+    // target.prototype.isTestable = true;
+  }
+}
+
+@testable(true)
+class MyTestableClass {}
+MyTestableClass.isTestable // true
+
+@testable(false)
+class MyClass {}
+MyClass.isTestable // false
+```
+
+### 方法的修饰
+
+修饰器不仅可以修饰类，还可以修饰类的属性。修饰器还有注释的作用，让人对类的方法作用一目了然。
+
+```js
+class Person {
+  @readonly
+  name() { return `${this.first} ${this.last}` }
+}
+function readonly(target, name, descriptor){
+  // descriptor对象原来的值如下
+  // {
+  //   value: specifiedFunction,
+  //   enumerable: false,
+  //   configurable: true,
+  //   writable: true
+  // };
+  descriptor.writable = false;
+  return descriptor;
+}
+
+readonly(Person.prototype, 'name', descriptor);
+// 类似于
+Object.defineProperty(Person.prototype, 'name', descriptor);
+```
+
+修饰器函数readonly一共可以接受三个参数。修饰器第一个参数是类的原型对象，上例是`Person.prototype`，修饰器的本意是要“修饰”类的实例，但是这个时候实例还没生成，所以只能去修饰原型（这不同于类的修饰，那种情况时`target`参数指的是类本身）；第二个参数是所要修饰的属性名，第三个参数是该属性的描述对象。上面代码说明，修饰器（readonly）会修改属性的描述对象（descriptor），然后被修改的描述对象再用来定义属性。
+
+**如果同一个方法有多个修饰，会先从外到内进入，然后由内到外执行。**
+
+```js
+function dec(id){
+  console.log('evaluated', id);
+  return (target, property, descriptor) => console.log('executed', id);
+}
+
+class Example {
+    @dec(1)
+    @dec(2)
+    method(){}
+}
+// evaluated 1
+// evaluated 2
+// executed 2
+// executed 1
+```
+
+
+
