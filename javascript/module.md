@@ -22,7 +22,7 @@ let readfile = _fs.readfile;
 import { stat, exists, readFile } from 'fs';
 ```
 
-上面代码实质是从`fs`模块加载3个方法，其他方法不加载。这种加载称为”**编译时加载**“或者**静态加载**，即ES6可以在编译时就完成模块加载，效率比`CommonJS`高。ES6模块是编译时加载，使得静态分析称为可能。**ES6模块之中，顶层的`this`指向`undefined`**。
+上面代码实质是从`fs`模块加载3个方法，其他方法不加载。这种加载称为”**编译时加载**“或者**静态加载**，即ES6可以在编译时就完成模块加载，效率比`CommonJS`高。ES6模块是编译时加载，使得静态分析称为可能。**ES6模块之中，顶层的**`this`**指向**`undefined`。
 
 ## 严格模式
 
@@ -83,7 +83,7 @@ export {
 };
 ```
 
-**注：`export`命令规定是对外的接口，必须与模块内部的变量建立一一对应关系。**
+**注：**`export`**命令规定是对外的接口，必须与模块内部的变量建立一一对应关系。**
 
 ```js
 // 错误的写法
@@ -119,7 +119,7 @@ foo()
 
 ## import命令
 
-`import`命令用于加载其他文件，并从中输入变量。如果**多次重复执行一句`import`语句，那么只会执行一次**，而不会多次执行。`import`命令接受一对大括号，里面指定要从其他模块导入的变量名。**大括号里面的变量名，必须与被导入模块对外接口的名称相同**。`import`后面的`from`指定模块文件的位置，可以是相对路径，也可以是绝对路径，`.js`后缀可以省略。如果只是模块名，不带有路径，则需要配置文件，告诉`JavaScript`引擎该模块的位置。若想为输入的变量重新取一个名字，需要使用`as`关键字。`import`命令输入的变量都是只读的，因为它的本质是输入接口。也就是**不允许在加载模块的脚本里面改写接口**。
+`import`命令用于加载其他文件，并从中输入变量。如果**多次重复执行一句**`import`**语句，那么只会执行一次**，而不会多次执行。`import`命令接受一对大括号，里面指定要从其他模块导入的变量名。**大括号里面的变量名，必须与被导入模块对外接口的名称相同**。`import`后面的`from`指定模块文件的位置，可以是相对路径，也可以是绝对路径，`.js`后缀可以省略。如果只是模块名，不带有路径，则需要配置文件，告诉`JavaScript`引擎该模块的位置。若想为输入的变量重新取一个名字，需要使用`as`关键字。`import`命令输入的变量都是只读的，因为它的本质是输入接口。也就是**不允许在加载模块的脚本里面改写接口**。
 
 ```js
 // 只会加载一次同一模块
@@ -137,7 +137,7 @@ import {a} from './xxx.js'
 a = {}; // Syntax Error : 'a' is read-only;
 ```
 
-**`import`命令具有提升效果**，会提升到整个模块的头部，首先执行。因为`import`命令是编译阶段执行的，在代码运行之前。也是因此，所以不能使用表达式和变量，这些只有在运行时才能得到结果的语法结构。
+`import`**命令具有提升效果**，会提升到整个模块的头部，首先执行。因为`import`命令是编译阶段执行的，在代码运行之前。也是因此，所以不能使用表达式和变量，这些只有在运行时才能得到结果的语法结构。
 
 ```js
 foo();
@@ -159,7 +159,7 @@ if (x === 1) {
 }
 ```
 
-**`import`语句会执行所加载的模块**。仅仅执行模块，但是不输入任何值。
+`import`**语句会执行所加载的模块**。仅仅执行模块，但是不输入任何值。
 
 ```
 import 'lodash';
@@ -256,7 +256,112 @@ let o = new MyClass();
 
 ## export 与 import 的复合写法
 
+如果在一个模块之中，先输入后输出同一个模块，`export`和`import`语句可以结合在一起，写成一行。
 
+```js
+export { foo, bar } from 'my_module';
+
+// 接口改名
+export { foo as myFoo } from 'my_module';
+
+// 整体输出
+export * from 'my_module';
+
+// 默认接口
+export { default } from 'foo';
+```
+
+但要注意的是，写成一行，**`foo`和`bar`实际上并没被导入当前模块**，只是相当于对外转发了这两个接口，导致**当前模块不能直接使用`foo`和`bar`**。
+
+以下三种`import`语句，没有对应的复合写法。
+
+```js
+import * as someIdentifier from "someModule";
+import someIdentifier from "someModule";
+import someIdentifier, { namedIdentifier } from "someModule";
+```
+
+**注：`export *`命令会忽略模块的default方法。**
+
+## import\(\)
+
+`import`命令会被JavaScript引擎静态分析，先于模块内的其他语句执行。`import`和`export`命令只能在模块的顶层，不能在代码之中。如此，条件加载就不可能实现。
+
+引入`import()`函数，完成动态加载。`import()`返回一个`Promise`对象。`import()`函数可以用在任何地方，不仅是模块，非模块的脚本也可以使用。它是运行时执行，也就是什么时候运行到这一句，就会加载指定的模块。`import()`函数与所加载的模块没有静态连接关系，这点与`import`语句不相同。`import()`类似 Node 的`require`方法，主要区别是前者异步加载，后者同步加载。
+
+```js
+const main = document.querySelector('main');
+
+import(`./section-modules/${someVariable}.js`)
+  .then(module => {
+    module.loadPageInto(main);
+  })
+  .catch(err => {
+    main.textContent = err.message;
+  });
+```
+
+### 适用场合
+
+`import()`函数可以实现按需加载、条件加载和动态模块路径生成。
+
+```js
+// 只有用户点击才会加载模块
+button.addEventListener('click', event => {
+  import('./dialogBox.js')
+  .then(dialogBox => {
+    dialogBox.open();
+  })
+  .catch(error => {
+    /* Error handling */
+  })
+});
+
+// 根据不同情况加载不同模块
+if (condition) {
+  import('moduleA').then(...);
+} else {
+  import('moduleB').then(...);
+}
+
+// 根据函数f的返回结果，加载不同的模块
+import(f())
+.then(...);
+```
+
+### 注意点
+
+`import()`加载模块成功以后，这个模块会作为一个对象，当作`then`方法的参数。可以使用对象解构赋值的语法，获取输出接口。如果模块有`default`输出接口，可以用参数直接获得。可以使用`Promise.all()`方法同时加载多个模块。也可以使用在`async`函数之中。
+
+```js
+import('./myModule.js')
+.then(myModule => {
+  console.log(myModule.default);
+});
+
+// Promise.all()同时加载多个模块
+Promise.all([
+  import('./module1.js'),
+  import('./module2.js'),
+  import('./module3.js'),
+])
+.then(([module1, module2, module3]) => {
+   ···
+});
+
+// 在async函数使用import()
+async function main() {
+  const myModule = await import('./myModule.js');
+  const {export1, export2} = await import('./myModule.js');
+  const [module1, module2, module3] =
+    await Promise.all([
+      import('./module1.js'),
+      import('./module2.js'),
+      import('./module3.js'),
+    ]);
+}
+main();
+```
 
 
 
