@@ -46,6 +46,8 @@
 
 [Class](/javascript/class.md)
 
+[Module](/javascript/module.md)
+
 ## Browser
 
 [浏览器缓存](/browser/liu-lan-qi-huan-cun.md)
