@@ -6,7 +6,7 @@
 
 ## CSS
 
-[CSS盒模型](/css/csshe-mo-xing.md)
+[CSS盒模型](/css/csshe-mo-xing.md)[函数的扩展](/javascript/han-shu-de-kuo-zhan.md)
 
 [BFC\(Block Formatting Context\)](/css/bfcblock-formatting-context.md)
 
@@ -37,6 +37,8 @@
 [let和const](/javascript/lethe-const.md)
 
 [变量的解构赋值](/javascript/bian-liang-de-jie-gou-fu-zhi.md)
+
+[函数的扩展](/javascript/han-shu-de-kuo-zhan.md)
 
 [Promise](/javascript/promise.md)
 
