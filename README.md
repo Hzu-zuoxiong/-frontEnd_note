@@ -50,6 +50,8 @@
 
 [Module](/javascript/module.md)
 
+[Symbol](/javascript/symbol.md)
+
 ## Browser
 
 [浏览器缓存](/browser/liu-lan-qi-huan-cun.md)
