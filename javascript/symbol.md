@@ -304,14 +304,118 @@ myIterable[Symbol.iterator] = function* () {
 
 ### Symbol.toPrimitive
 
-对象的Symbol.toPrimitive属性，指向一个方法。该对象被转为原始类型的值时，会调用这个对象，返回该对象对应的原始类型值。
+对象的`Symbol.toPrimitive`属性，指向一个方法。该对象被转为原始类型的值时，会调用这个对象，返回该对象对应的原始类型值。
 
-Symbol.toPrimitive被调用时，会接受一个字符串参数，表示当前运算的模式，一共三种模式。
+`Symbol.toPrimitive`被调用时，会接受一个字符串参数，表示当前运算的模式，一共三种模式。
 
-* Number：该场合需要转成数值。
-* 
+* `Number`：该场合需要转成数值。
+* `String`：该场合需要转成字符串。
+* `Default`：该场合可以转成数值，也可以转成字符串。
+
+```js
+let obj = {
+  [Symbol.toPrimitive](hint) {
+    switch (hint) {
+      case 'number':
+        return 123;
+      case 'string':
+        return 'str';
+      case 'default':
+        return 'default';
+      default:
+        throw new Error();
+     }
+   }
+};
+
+2 * obj // 246
+3 + obj // '3default'
+obj == 'default' // true
+String(obj) // 'str'
 ```
 
+### Symbol.toStringTag
+
+对象的`Symbol.toStringTag`属性，指向一个方法。在该对象上调用`Object.prototype.toString`方法时，如果这个属性存在，它的返回值会出现在`toString`方法返回的字符串之中，表示对象的类型。也就是，这个属性可以用来定制`[object object]`或`[object Array]`中`object`后面的字符串。
+
+```js
+// 例一
+({[Symbol.toStringTag]: 'Foo'}.toString())
+// "[object Foo]"
+
+// 例二
+class Collection {
+  get [Symbol.toStringTag]() {
+    return 'xxx';
+  }
+}
+let x = new Collection();
+Object.prototype.toString.call(x) // "[object xxx]"
+```
+
+`ES6`新增内置对象的`Symbol.toStringTag`属性值：
+
+* `JSON[Symbol.toStringTag]`：'JSON'
+* `Math[Symbol.toStringTag]`：'Math'
+* Module 对象`M[Symbol.toStringTag]`：'Module'
+* `ArrayBuffer.prototype[Symbol.toStringTag]`：'ArrayBuffer'
+* `DataView.prototype[Symbol.toStringTag]`：'DataView'
+* `Map.prototype[Symbol.toStringTag]`：'Map'
+* `Promise.prototype[Symbol.toStringTag]`：'Promise'
+* `Set.prototype[Symbol.toStringTag]`：'Set'
+* `%TypedArray%.prototype[Symbol.toStringTag]`：'Uint8Array'等
+* `WeakMap.prototype[Symbol.toStringTag]`：'WeakMap'
+* `WeakSet.prototype[Symbol.toStringTag]`：'WeakSet'
+* `%MapIteratorPrototype%[Symbol.toStringTag]`：'Map Iterator'
+* `%SetIteratorPrototype%[Symbol.toStringTag]`：'Set Iterator'
+* `%StringIteratorPrototype%[Symbol.toStringTag]`：'String Iterator'
+* `Symbol.prototype[Symbol.toStringTag]`：'Symbol'
+* `Generator.prototype[Symbol.toStringTag]`：'Generator'
+* `GeneratorFunction.prototype[Symbol.toStringTag]`：'GeneratorFunction'
+
+### Symbol.unscopables
+
+对象的Symbol.unscopables属性，指向一个对象。该对象指定使用with关键字时，哪些属性会被with环境排除
+
+```js
+Array.prototype[Symbol.unscopables]
+// {
+//   copyWithin: true,
+//   entries: true,
+//   fill: true,
+//   find: true,
+//   findIndex: true,
+//   includes: true,
+//   keys: true
+// }
+
+Object.keys(Array.prototype[Symbol.unscopables])
+// ['copyWithin', 'entries', 'fill', 'find', 'findIndex', 'includes', 'keys']
+
+// 没有 unscopables 时
+class MyClass {
+  foo() { return 1; }
+}
+
+var foo = function () { return 2; };
+
+with (MyClass.prototype) {
+  foo(); // 1
+}
+
+// 有 unscopables 时
+class MyClass {
+  foo() { return 1; }
+  get [Symbol.unscopables]() {
+    return { foo: true };
+  }
+}
+
+var foo = function () { return 2; };
+
+with (MyClass.prototype) {
+  foo(); // 2
+}
 ```
 
 
