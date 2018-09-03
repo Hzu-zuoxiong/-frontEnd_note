@@ -121,5 +121,7 @@ ctx.font="30px Arial";
 ctx.fillText("Hello World",10,50);
 ```
 
+### Canvas - 渐变
 
+渐变可以填充在矩形、圆形、线条、文本等等，各种形状可以定义不同的颜色
 
