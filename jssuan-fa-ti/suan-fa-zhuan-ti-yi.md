@@ -11,7 +11,7 @@ function times(str,n){
 
 * 编写一个函数判断参数是否是数组类型，是返回true;
 
-```
+```js
 function isArray(arr) {
     return Object.prototype.toString.call(arr) === '[Object Array]';
 }
@@ -57,8 +57,6 @@ JSONP('https://api.douban.com/v2/movie/in_theaters', function(data) {
 解析：10个调色盘，分别当作10个二进制位。700瓶颜料从1到700编号，写成二进制形式，每一瓶颜料，在其二进制为1的位所对应的调色盘上加入。
 一小时后，按照变成白色该调色盘对应位为1的原则，写出一个二进制数就是变质颜料的编号。
 ```
-
-
 
 
 
