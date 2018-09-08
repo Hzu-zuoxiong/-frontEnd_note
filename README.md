@@ -8,6 +8,8 @@
 
 [CSS盒模型](/css/csshe-mo-xing.md)[函数的扩展](/javascript/han-shu-de-kuo-zhan.md)
 
+[一行居中，多行左对齐](/css/yi-xing-ju-zhong-ff0c-duo-xing-zuo-dui-qi.md)
+
 [BFC\(Block Formatting Context\)](/css/bfcblock-formatting-context.md)
 
 ### 三栏布局
