@@ -58,5 +58,11 @@ JSONP('https://api.douban.com/v2/movie/in_theaters', function(data) {
 一小时后，按照变成白色该调色盘对应位为1的原则，写出一个二进制数就是变质颜料的编号。
 ```
 
+* 原生JS实现bind函数
+
+```js
+
+```
+
 
 
