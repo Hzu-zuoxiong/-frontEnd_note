@@ -82,11 +82,11 @@ alert(['a','b','c','d','b','a','e'].distinct());
 * 请给Array本地对象增加一个原型方法，它用于删除数组条目中重复的条目\(可能有多个\)，返回值是一个不含重复元素的新数组。
 
 ```js
-Array.prototype.distinct = function() {
+Array.prototype.uniq = function() {
      return Array.from(new Set(this));
 }
 //for test
-alert(['a','b','c','d','b','a','e'].distinct());
+['a','b','c','d','b','a','e'].uniq();
 ```
 
 
