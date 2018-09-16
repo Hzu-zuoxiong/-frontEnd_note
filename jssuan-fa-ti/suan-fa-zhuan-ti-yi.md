@@ -58,10 +58,35 @@ JSONP('https://api.douban.com/v2/movie/in_theaters', function(data) {
 一小时后，按照变成白色该调色盘对应位为1的原则，写出一个二进制数就是变质颜料的编号。
 ```
 
-* 原生JS实现bind函数
+* 请给Array本地对象增加一个原型方法，它用于删除数组条目中重复的条目\(可能有多个\)，返回值是一个包含被删除的重复条目的新数组。
 
 ```js
+Array.prototype.distinct = function() {
+    var ret = [];
+    for (var i = 0; i < this.length; i++)
+    {
+        for (var j = i+1; j < this.length;) {   
+            if (this[i] === this[j]) {
+                ret.push(this.splice(j, 1)[0]);
+            } else {
+                j++;
+            }
+        }
+     }
+     return ret;
+}
+//for test
+alert(['a','b','c','d','b','a','e'].distinct());
+```
 
+* 请给Array本地对象增加一个原型方法，它用于删除数组条目中重复的条目\(可能有多个\)，返回值是一个不含重复元素的新数组。
+
+```js
+Array.prototype.distinct = function() {
+     return Array.from(new Set(this));
+}
+//for test
+alert(['a','b','c','d','b','a','e'].distinct());
 ```
 
 
