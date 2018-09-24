@@ -6,7 +6,7 @@
 
 ## CSS
 
-[CSS盒模型](/css/csshe-mo-xing.md)[函数的扩展](/javascript/han-shu-de-kuo-zhan.md)
+[CSS盒模型](/css/csshe-mo-xing.md)
 
 [一行居中，多行左对齐](/css/yi-xing-ju-zhong-ff0c-duo-xing-zuo-dui-qi.md)
 
