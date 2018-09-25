@@ -33,15 +33,15 @@
     语义化元素：article、footer、header、nav、section
     表单控件：calendar、date、time、email、url、search
     新的技术：WebWorker、WebSocket、Geolocation
-    
+
 * 移除的元素：
     纯表现的元素：big、center、font、s、strike、u
     对可用性产生负面影响的元素：frame、frameset、noframes
-    
+
 * 支持HTML5新标签
     IE6/7/8支持通过document.createElement方法产生的标签，利用这一特性让浏览器支持HTML5新标签
     浏览器支持新标签后，还需要添加标签默认的样式
-    
+
 * 区分HTML5：DOCTYPE声明、新增的结构元素、功能元素
 ```
 
@@ -64,7 +64,7 @@ HTML语义化让页面的内容结构化，结构更清晰，便于对浏览器�
 离线的情况：浏览器直接使用离线存储的资源。
 ```
 
-* 描述一下`cookie`、sessionStorage和localStorage的区别？
+* 描述一下`cookie`、`sessionStorage`和`localStorage`的区别？
 
 ```
 cookie是网站为了标识用户身份而存储在用户本地终端的数据（通常经过加密）。
@@ -74,7 +74,7 @@ sessionStorage和localStorage不会自动把数据发送给服务器，尽在本
 存储大小：
     cookie数据大小不能超过4K。
     sessionStorage和localStorage虽然有存储大小限制，但比cookie大得多，可以达到5M或更大。
-    
+
 存储期限：
     localStorage    存储持久数据，浏览器关闭后数据不会丢失
     sessionStorage  数据在当前浏览器窗口关闭后自动删除
