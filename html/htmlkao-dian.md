@@ -81,7 +81,7 @@ sessionStorage和localStorage不会自动把数据发送给服务器，尽在本
     cookie          设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭。
 ```
 
-* iframe有什么缺点？
+* `iframe`有什么缺点？
 
 ```
 * iframe会阻塞主页面的onload事件
@@ -95,48 +95,62 @@ sessionStorage和localStorage不会自动把数据发送给服务器，尽在本
 
 ```js
 1.localStorage: localStorage在被添加、修改、删除时都会触发一个storage事件
-  fitst.html
-	<input id="name">
-	<input type="button" id="btn" value="提交">
-	<script type="text/javascript">
-		$(function(){  
-			$("#btn").click(function(){  
-				var name=$("#name").val();  
-				localStorage.setItem("name", name); 
-			});  
-		});  
-	</script>
-  second.html
-  	<script type="text/javascript">
-		$(function(){ 
-			window.addEventListener("storage", function(event){  
-				console.log(event.key + "=" + event.newValue);  
-			});   
-		});
-	</script>
+**fitst.html**
+<input id="name">
+<input type="button" id="btn" value="提交">
+<script type="text/javascript">
+$(function(){  
+    $("#btn").click(function(){  
+        var name=$("#name").val();  
+        localStorage.setItem("name", name); 
+    });  
+});  
+</script>
+**second.html**
+<script type="text/javascript">
+$(function(){ 
+    window.addEventListener("storage", function(event){  
+        console.log(event.key + "=" + event.newValue);  
+    });   
+});
+</script>
+
 2.cookie + setInterval: 将传递的信息存储在cookie中，每隔一定事件读取cookie信息。
-  first.html
-	<input id="name">
-	<input type="button" id="btn" value="提交">
-	<script type="text/javascript">
-		$(function(){  
-			$("#btn").click(function(){  
-				var name=$("#name").val();  
-				document.cookie="name="+name;  
-			});  
-		});  
-	</script>
-  second.html
-  	<script type="text/javascript">
-		$(function(){ 
-			function getCookie(key) {  
-				return JSON.parse("{\"" + document.cookie.replace(/;\s+/gim,"\",\"").replace(/=/gim, "\":\"") + "\"}")[key];  
-			}   
-			setInterval(function(){  
-				console.log("name=" + getCookie("name"));  
-			}, 10000);  
-		});
-	</script>	
+**first.html**
+<input id="name">
+<input type="button" id="btn" value="提交">
+<script type="text/javascript">
+$(function(){  
+    $("#btn").click(function(){  
+        var name=$("#name").val();  
+        document.cookie="name="+name;  
+    });  
+});  
+</script>
+**second.html**
+<script type="text/javascript">
+$(function(){ 
+    function getCookie(key) {  
+        return JSON.parse("{\"" + document.cookie.replace(/;\s+/gim,"\",\"").replace(/=/gim, "\":\"") + "\"}")[key];  
+    }   
+    setInterval(function(){  
+        console.log("name=" + getCookie("name"));  
+    }, 10000);  
+});
+</script>
+```
+
+* 页面可见性（`Page Visibility API`）可以有哪些用途？
+
+```
+通过visibilityState的值检测页面当前是否可见，以及网页的打开时间等。
+在页面被切换到其他后台进程时，自动暂停音乐或视频的播放。
+```
+
+* 实现不使用border画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。
+
+```
+  <div style="height:1px;overflow:hidden;background:red"></div>
 ```
 
 
