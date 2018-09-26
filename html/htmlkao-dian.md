@@ -81,5 +81,63 @@ sessionStorage和localStorage不会自动把数据发送给服务器，尽在本
     cookie          设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭。
 ```
 
+* iframe有什么缺点？
+
+```
+* iframe会阻塞主页面的onload事件
+* 搜索引擎的检索程序无法解读这种页面，不利于SEO
+* iframe和主页面共享连接池，而浏览器对相同域的连接有限制，会影响页面的并行加载
+
+通过js动态给iframe添加src属性，可以绕开这些问题
+```
+
+* 如何实现浏览器内多个标签页之间的通信？
+
+```js
+1.localStorage: localStorage在被添加、修改、删除时都会触发一个storage事件
+  fitst.html
+	<input id="name">
+	<input type="button" id="btn" value="提交">
+	<script type="text/javascript">
+		$(function(){  
+			$("#btn").click(function(){  
+				var name=$("#name").val();  
+				localStorage.setItem("name", name); 
+			});  
+		});  
+	</script>
+  second.html
+  	<script type="text/javascript">
+		$(function(){ 
+			window.addEventListener("storage", function(event){  
+				console.log(event.key + "=" + event.newValue);  
+			});   
+		});
+	</script>
+2.cookie + setInterval: 将传递的信息存储在cookie中，每隔一定事件读取cookie信息。
+  first.html
+	<input id="name">
+	<input type="button" id="btn" value="提交">
+	<script type="text/javascript">
+		$(function(){  
+			$("#btn").click(function(){  
+				var name=$("#name").val();  
+				document.cookie="name="+name;  
+			});  
+		});  
+	</script>
+  second.html
+  	<script type="text/javascript">
+		$(function(){ 
+			function getCookie(key) {  
+				return JSON.parse("{\"" + document.cookie.replace(/;\s+/gim,"\",\"").replace(/=/gim, "\":\"") + "\"}")[key];  
+			}   
+			setInterval(function(){  
+				console.log("name=" + getCookie("name"));  
+			}, 10000);  
+		});
+	</script>	
+```
+
 
 
