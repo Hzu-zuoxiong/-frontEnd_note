@@ -89,5 +89,89 @@ Array.prototype.uniq = function() {
 ['a','b','c','d','b','a','e'].uniq();
 ```
 
+* 写一个traverse函数，输出所有页面宽度和高度大于50像素的节点
+
+```js
+function traverse(oNode) {
+    var aResult = [];
+    oNode = oNode || document.body;
+    if(oNode.style) {
+        var nWidth = window.parseInt(oNode.style.width, 10) || 0;
+        var nHeight = window.parseInt(oNode.style.height, 10) || 0;
+        if(nWidth > 50 && nHeight > 50) {
+            aResult.push(oNode);
+        }
+    }
+    var aChildNodes = oNode.childNodes;
+    if(aChildNodes.length > 0) {
+        for(var i = 0; i < aChildNodes.length; i++) {
+            var oTmp = aChildNodes[i];
+            aResult = aResult.concat(traverse(oTmp));
+        }
+    }
+    return aResult;
+}
+```
+
+* 编写CSS代码，装饰input，当鼠标指向它时，能够出现下方tooltip。
+  注意：tooltip上部的小三角是用CSS生成的，并且需要有和tooptip一样的边框。当改变tooltip本身的边框颜色，它也会随同变化
+
+![](/assets/CSS小三角形.png)
+
+```css
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+        .tooltip {
+        	position: relative;
+        	width: 250px;
+        	border: 1px solid #999;
+        	margin-top: 15px;
+        	display: none;
+        }
+
+        input:hover+.tooltip {
+        	display: block;
+        }
+
+        .tooltip::before {
+        	position: absolute;
+        	content: '';
+        	width: 0;
+        	height: 0;
+        	top: -26px;
+        	left: 10px;
+        	border: 13px solid;
+        	border-color: inherit;
+			border-top-color: transparent;
+			border-right-color: transparent;
+			border-left-color: transparent;
+        }
+		
+		.tooltip::after {
+			position: absolute;
+			content: '';
+			width: 0;
+			height: 0;
+			top: -25px;
+			left: 10px;
+			border: 13px solid;
+			border-color: transparent transparent white transparent;
+		}
+	</style>
+</head>
+<body>
+	
+	<div>
+    	<input placeholder='请输入文字' />
+    	<div class='tooltip'>只能够输入英文字母、数字和下划线与中划线。</div>
+	</div>
+</body>
+</html>
+```
+
 
 
