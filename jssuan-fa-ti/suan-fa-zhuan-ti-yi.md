@@ -177,52 +177,52 @@ function traverse(oNode) {
 
 ```js
 class myEvent {
-	constructor() {
-		this._cache = {};
-	}
+    constructor() {
+        this._cache = {};
+    }
 
-	on(type, callback) {
-		this._cache[type] = this._cache[type] || [];
-		let fns = this._cache[type];
-		if(fns.indexOf(callback) === -1) {
-			fns.push(callback);
-		}
-		return this;
-	}
+    on(type, callback) {
+        this._cache[type] = this._cache[type] || [];
+        let fns = this._cache[type];
+        if(fns.indexOf(callback) === -1) {
+            fns.push(callback);
+        }
+        return this;
+    }
 
-	emit(type, data) {
-		let fns = this._cache[type];
-		if(Array.isArray(fns)) {
-			fns.forEach((fn) => {
-				fn(data);
-			});
-		}
-		return this;
-	}
+    emit(type, data) {
+        let fns = this._cache[type];
+        if(Array.isArray(fns)) {
+            fns.forEach((fn) => {
+                fn(data);
+            });
+        }
+        return this;
+    }
 
-	off(type, callback) {
-		let fns = this._cache[type];
-		if(Array.isArray(fns)) {
-			// callback存在则删除callback，否则清空
-			if(callback) {
-				let index = fns.indexOf(callback);
-				if(index !== -1) {
-					fns.splice(index, 1);
-				}
-			} else {
-				fns.length = 0;
-			}
-		}
-	}
-	
-	once(type, callback) {
-		let func = (...args) => {
-			callback.apply(this, args);
-			this.off(type);
-		}
-		this.on(type, func);
-		return this;
-	}
+    off(type, callback) {
+        let fns = this._cache[type];
+        if(Array.isArray(fns)) {
+            // callback存在则删除callback，否则清空
+            if(callback) {
+                let index = fns.indexOf(callback);
+                if(index !== -1) {
+                    fns.splice(index, 1);
+                }
+            } else {
+                fns.length = 0;
+            }
+        }
+    }
+
+    once(type, callback) {
+        let func = (...args) => {
+            callback.apply(this, args);
+            this.off(type);
+        }
+        this.on(type, func);
+        return this;
+    }
 }
 
 const event = new myEvent();
