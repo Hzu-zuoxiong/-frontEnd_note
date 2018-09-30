@@ -235,5 +235,41 @@ event.off('test');                                 // 解绑事件
 event.emit('test');                                // 未被触发
 ```
 
+* 实现对象的深拷贝
+
+```js
+function deepClone(o1, o2) {
+	for(let k in o2) {
+		if(Object.prototype.toString.call(o2[k]) === "[object Array]") {
+			o1[k] = o2[k];
+		} else if(typeof o2[k] === 'object') {
+			o1[k] = {};
+			deepClone(o1[k], o2[k]);
+		} else {
+			o1[k] = o2[k];
+		}
+	}
+}
+
+// 测试
+let obj = {
+	a: 1,
+	b: 'string',
+	c: [1,2,3],
+	d: {
+		b: 1,
+		a: [5,'w',{z:5, b:3}],
+		z: 'string',
+		s: {
+			b:2
+		}
+	}
+}
+let emptyObj = Object.create(null);
+deepClone(emptyObj, obj);
+console.log(emptyObj);
+console.log(emptyObj.d.s.b == obj.d.s.b);
+```
+
 
 
