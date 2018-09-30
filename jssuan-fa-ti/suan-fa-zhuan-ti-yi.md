@@ -173,5 +173,67 @@ function traverse(oNode) {
 </html>
 ```
 
+* 实现一个事件类Event，包含以下功能：绑定事件、解绑事件、派发事件和单次事件
+
+```js
+class myEvent {
+	constructor() {
+		this._cache = {};
+	}
+
+	on(type, callback) {
+		this._cache[type] = this._cache[type] || [];
+		let fns = this._cache[type];
+		if(fns.indexOf(callback) === -1) {
+			fns.push(callback);
+		}
+		return this;
+	}
+
+	emit(type, data) {
+		let fns = this._cache[type];
+		if(Array.isArray(fns)) {
+			fns.forEach((fn) => {
+				fn(data);
+			});
+		}
+		return this;
+	}
+
+	off(type, callback) {
+		let fns = this._cache[type];
+		if(Array.isArray(fns)) {
+			// callback存在则删除callback，否则清空
+			if(callback) {
+				let index = fns.indexOf(callback);
+				if(index !== -1) {
+					fns.splice(index, 1);
+				}
+			} else {
+				fns.length = 0;
+			}
+		}
+	}
+	
+	once(type, callback) {
+		let func = (...args) => {
+			callback.apply(this, args);
+			this.off(type);
+		}
+		this.on(type, func);
+		return this;
+	}
+}
+
+const event = new myEvent();
+event.on('test', (a) => {console.log(a);});
+event.emit('test', 'hello world');                 // hello world
+event.once('myfunc', () => console.log('once'));
+event.emit('myfunc');                              // once
+event.emit('myfunc');                              // 未被触发
+event.off('test');                                 // 解绑事件
+event.emit('test');                                // 未被触发
+```
+
 
 

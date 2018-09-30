@@ -13,14 +13,10 @@
       2. async是在加载完之后立即执行，如果是多个，执行顺序和加载顺序无关
 3. 利用浏览器缓存-----&gt;缓存的分类-----&gt;缓存的原理
 4. 使用CDN
-5. 预解析DNS
+5. 预解析DNS  
    1. &lt;meta http-equiv="x-dns-prefetch-control" content="on"&gt;
 
-   2. &lt;link rel="dns-prefetch" href="//hostNameToPrefetch.com"&gt;
-
-
-
-
+   1. &lt;link rel="dns-prefetch" href="//hostNameToPrefetch.com"&gt;
 
 
 
