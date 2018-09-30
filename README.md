@@ -74,9 +74,9 @@
 
 ## JS面试题
 
-[算法专题一](/jssuan-fa-ti/suan-fa-zhuan-ti-yi.md)
+[JS常考算法](/jssuan-fa-ti/suan-fa-zhuan-ti-yi.md)
 
-1[4道JavaScript题](/jssuan-fa-ti/14dao-javascript-ti.md)
+[14道JavaScript题](/jssuan-fa-ti/14dao-javascript-ti.md)
 
 ## Network
 

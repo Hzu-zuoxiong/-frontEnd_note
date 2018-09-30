@@ -1,4 +1,4 @@
-# 算法专题一
+# JS常考算法
 
 * 编写一个times函数，接收2个参数，一个字符串类型str（如"abc"），一个Number类型num（如3），返回一个字符串（这里是"abcabcabc"）。
 
@@ -122,53 +122,53 @@ function traverse(oNode) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style type="text/css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
         .tooltip {
-        	position: relative;
-        	width: 250px;
-        	border: 1px solid #999;
-        	margin-top: 15px;
-        	display: none;
+            position: relative;
+            width: 250px;
+            border: 1px solid #999;
+            margin-top: 15px;
+            display: none;
         }
 
         input:hover+.tooltip {
-        	display: block;
+            display: block;
         }
 
         .tooltip::before {
-        	position: absolute;
-        	content: '';
-        	width: 0;
-        	height: 0;
-        	top: -26px;
-        	left: 10px;
-        	border: 13px solid;
-        	border-color: inherit;
-			border-top-color: transparent;
-			border-right-color: transparent;
-			border-left-color: transparent;
+            position: absolute;
+            content: '';
+            width: 0;
+            height: 0;
+            top: -26px;
+            left: 10px;
+            border: 13px solid;
+            border-color: inherit;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-left-color: transparent;
         }
-		
-		.tooltip::after {
-			position: absolute;
-			content: '';
-			width: 0;
-			height: 0;
-			top: -25px;
-			left: 10px;
-			border: 13px solid;
-			border-color: transparent transparent white transparent;
-		}
-	</style>
+
+        .tooltip::after {
+            position: absolute;
+            content: '';
+            width: 0;
+            height: 0;
+            top: -25px;
+            left: 10px;
+            border: 13px solid;
+            border-color: transparent transparent white transparent;
+        }
+    </style>
 </head>
 <body>
-	
-	<div>
-    	<input placeholder='请输入文字' />
-    	<div class='tooltip'>只能够输入英文字母、数字和下划线与中划线。</div>
-	</div>
+
+    <div>
+        <input placeholder='请输入文字' />
+        <div class='tooltip'>只能够输入英文字母、数字和下划线与中划线。</div>
+    </div>
 </body>
 </html>
 ```

@@ -40,7 +40,7 @@
   * [浏览器缓存](browser/liu-lan-qi-huan-cun.md)
   * [跨域问题](browser/kua-yu-wen-ti.md)
 * [JS面试题](jssuan-fa-ti.md)
-  * [算法专题一](jssuan-fa-ti/suan-fa-zhuan-ti-yi.md)
+  * [JS常考算法](jssuan-fa-ti/suan-fa-zhuan-ti-yi.md)
   * [14道JavaScript题](jssuan-fa-ti/14dao-javascript-ti.md)
 * [Network](ji-suan-ji-wang-luo.md)
   * [HTTP](browser/http.md)
