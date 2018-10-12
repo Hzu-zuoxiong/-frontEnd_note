@@ -90,11 +90,38 @@ b.call(a, 1, 2);        // 3
 
 ## bind和apply、call区别
 
-bind\(\)方法创建一个新的函数，当被调用时，将其this设置为提供的值。所以，bind\(\)是创建一个新的函数，需要我们手动调用。
+bind方法返回值是函数，bin方法不会立即执行，而是返回一个改变了上下文this后的函数。而原函数中的this并没有被改变，依旧指向全局window。
 
 ```js
-b.bind(a,1,2)()           // 3
+var obj = {
+    name: 'Dot'
+}
+
+function printName() {
+    console.log(this.name)
+}
+
+var dot = printName.bind(obj)
+console.log(dot) // function () { … }
+dot()  // Dot
 ```
 
+低版本浏览器没有bind方法，可以自己实现：
 
+```js
+Function.prototype.bind = function() {
+    var self = this;                // 保存原函数
+    var context = [].shift.call(arguments);  // 保存需要绑定的this上下文
+    var args = [].slice.call(arguments);   // 保存剩余参数，转成数组形式
+    return function() {
+        self.apply(context, [].concat.call(args, [].slice.call(arguments)));
+    }
+}
+```
+
+## 总结：
+
+call、apply和bind函数的区别：
+
+bind返回对应函数，便于稍后调用；apply、call则是立即调用。除此之外，在ES6的箭头函数下，call和apply将失效。
 
