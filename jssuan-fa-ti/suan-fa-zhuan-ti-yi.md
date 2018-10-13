@@ -271,5 +271,27 @@ console.log(emptyObj);
 console.log(emptyObj.d.s.b == obj.d.s.b);
 ```
 
+* \["1", "2", "3"\].map\(parseInt\)输出什么？
+
+```js
+// parseInt函数能解析一个字符串，并返回一个整数，需要两个参数(val, radix)，其中radix表示要解析的字符串的基数【该值介于2~36之间，
+// 并且字符串中的数字不能大于radix才能正确返回数值结果】，但此处map传了三个参数(element, index, array)，重写parseInt测试规则：
+ function parseInt(str, radix) {
+     return str+'-'+radix;
+ };
+ var a=["1", "2", "3"];
+ a.map(parseInt);  // ["1-0", "2-1", "3-2"] 不能大于radix
+ // 因为没有一进制，二进制没有数字3，故后面两个都是NaN.
+ // 所以，最后["1", "2", "3"].map(parseInt)输出：[1, NaN, NaN]
+```
+
+* new操作符具体做了什么
+
+```
+1.创建一个空对象，并且this变量引用该对象，同时还继承了该函数的原型。
+2.属性和方法都添加到this引用的对象中。
+3.新创建的对象由this所引用，并且最后隐式返回this。
+```
+
 
 
