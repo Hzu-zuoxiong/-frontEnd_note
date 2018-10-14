@@ -52,4 +52,6 @@
   * [选择排序](sort/xuan-ze-pai-xu.md)
   * [插入排序](sort/cha-ru-pai-xu.md)
   * [快速排序](sort/kuai-su-pai-xu.md)
+* [Vue](vue.md)
+  * [Vue响应式原理](vue/vuexiang-ying-shi-yuan-li.md)
 
