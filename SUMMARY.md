@@ -22,7 +22,7 @@
   * [this、apply、call、bind](javascript/thisapplycallbind.md)
   * [防抖与节流](javascript/fang-dou-yu-jie-liu.md)
   * [原型链](javascript/yuan-xing-lian.md)
-  * [继承](javascript/ji-cheng.md)
+  * [JS继承](javascript/ji-cheng.md)
   * JavaScript考点
 * ECMAScript6
   * [let和const](javascript/lethe-const.md)
