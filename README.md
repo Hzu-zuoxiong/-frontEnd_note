@@ -42,6 +42,8 @@
 
 [防抖与节流](/javascript/fang-dou-yu-jie-liu.md)
 
+[JS继承](/javascript/ji-cheng.md)
+
 ## ECMAScript6
 
 [let和const](/javascript/lethe-const.md)
@@ -74,6 +76,8 @@
 
 ## JS面试题
 
+[前端考点](/jssuan-fa-ti/qian-duan-kao-dian.md)
+
 [JS常考算法](/jssuan-fa-ti/suan-fa-zhuan-ti-yi.md)
 
 [14道JavaScript题](/jssuan-fa-ti/14dao-javascript-ti.md)
@@ -95,4 +99,8 @@
 [插入排序](/sort/cha-ru-pai-xu.md)
 
 [快速排序](/sort/kuai-su-pai-xu.md)
+
+## Vue
+
+[Vue响应式原理](/vue/vuexiang-ying-shi-yuan-li.md)
 

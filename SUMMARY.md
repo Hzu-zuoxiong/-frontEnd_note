@@ -23,7 +23,7 @@
   * [防抖与节流](javascript/fang-dou-yu-jie-liu.md)
   * [原型链](javascript/yuan-xing-lian.md)
   * [JS继承](javascript/ji-cheng.md)
-  * JavaScript考点
+  * [JavaScript考点](javascript/javascriptkao-dian.md)
 * ECMAScript6
   * [let和const](javascript/lethe-const.md)
   * [变量的解构赋值](javascript/bian-liang-de-jie-gou-fu-zhi.md)
