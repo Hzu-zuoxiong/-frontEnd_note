@@ -29,7 +29,7 @@ IE盒子模型：宽高为content+padding+border
   7.通配符选择器（*）
   8.属性选择器(a[rel='external'])
   9.伪类选择器（a:hover li:nth-child）
-  
+
 * 可继承的属性：
   1.字体系列属性:
     font-family、font-weight、font-size、font-style等
@@ -46,7 +46,7 @@ IE盒子模型：宽高为content+padding+border
     page、page-break-inside、windows、orpgabs
   9.声音样式属性：
     speak、volume、voice-family、pitch、stress、richness、azimuth、elevation
-  
+
 * 不可继承属性：
   1.框类型：display
   2.文本属性：
@@ -75,7 +75,7 @@ IE盒子模型：宽高为content+padding+border
 优先级算法：
     同权重：内联样式表（标签内部） > 嵌入样式表（当前文件中） > 外部样式表（外部文件）
     !important > id > class > tag
-    important比内联优先级高 
+    important比内联优先级高
 ```
 
 * 如何居中`div`？
@@ -86,42 +86,50 @@ IE盒子模型：宽高为content+padding+border
 水平垂直居中：
 ** 设置外边距 **
 div {
-    position: relative;		/* 相对定位或绝对定位均可 */
+    position: relative;        /* 相对定位或绝对定位均可 */
     width:500px;
     height:300px;
     top: 50%;
     left: 50%;
-    margin: -150px 0 0 -250px;     	/* 外边距为自身宽高的一半 */
-    background-color: red;	 	/* 方便看效果 */
+    margin: -150px 0 0 -250px;         /* 外边距为自身宽高的一半 */
+    background-color: red;         /* 方便看效果 */
 }
 
 ** 利用transform属性 **
 div {
-     position: absolute;		/* 相对定位或绝对定位均可 */
+     position: absolute;        /* 相对定位或绝对定位均可 */
      width:500px;
      height:300px;
      top: 50%;
      left: 50%;
      transform: translate(-50%, -50%);
-     background-color: red;	 	/* 方便看效果 */
+     background-color: red;         /* 方便看效果 */
 }
- 
+
  ** 使用flex布局 **
 .container {
     display: flex;
-    align-items: center; 		/* 垂直居中 */
-    justify-content: center;	        /* 水平居中 */
+    align-items: center;         /* 垂直居中 */
+    justify-content: center;            /* 水平居中 */
 }
 .container div {
     width: 100px;
     height: 100px;
-    background-color: pink;		/* 方便看效果 */
-}  
+    background-color: pink;        /* 方便看效果 */
+}
 ```
 
+* `position`的`absolute`与`fixed`共同点与不同点
 
+```
+共同点：
+1.改变行内元素的呈现方式，display被设置为inline-block
+2.让元素脱离普通流，不占据空间
+3.默认会覆盖到非定位元素上
 
-
+不同点：
+absolute的“根元素”是可以设置的，而fixed的“根元素”固定为浏览器窗口
+```
 
 
 
