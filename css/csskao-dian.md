@@ -9,6 +9,18 @@
 4.link支持使用JS控制DOM去改变样式，而@import不支持。
 ```
 
+* CSS3有哪些新特性？
+
+```
+1.CSS3实现圆角(border-radius)，阴影(box-shadow)
+2.对文字加特效(text-shadow)，线性渐变(gradient)，旋转(transform)
+3.transform:rotate(9deg) scale(0.85, 0.90) translate(0px -30px) skew(-9deg, 0deg); // 旋转、缩放、定位、倾斜
+4.增加了更多的CSS选择器  多背景 rgba
+5.CSS3唯一引入的伪类： ::selection
+6.媒体查询，多栏布局
+7.border-image
+```
+
 * 介绍一下标准的`CSS`的盒子模型？低版本的IE盒子模型有什么不同？
 
 ```
@@ -64,7 +76,7 @@ IE盒子模型：宽高为content+padding+border
     size、page-break-before、page-break-after
   9.声音样式属性：
     pause-before、pause-after、pause、cue-before、cue-after、cue、play-during
-    
+
 优先级算法：
 1.优先级就近原则，同权重情况下样式定义最近者为准
 2.载入样式以最后载入的定位为准
@@ -132,6 +144,14 @@ div {
 
 不同点：
 absolute的“根元素”是可以设置的，而fixed的“根元素”固定为浏览器窗口
+```
+
+* 解析下CSS sprites，以及你要如何在页面或网站中使用它？
+
+```
+CSS sprites 就是把网页中一些被背景图片整合到一张图片文件中，再利用CSS的background-image、background-repeat、
+background-position的组合进行背景定位，background-position可以用数字能精确的定位出背景图片的位置。这样可以减少很多图片请求
+的开销，因为请求消耗时比较长；请求虽然可以并发，但也有限制，一般浏览器都是6个。
 ```
 
 
