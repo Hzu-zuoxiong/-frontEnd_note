@@ -17,7 +17,7 @@
 IE盒子模型：宽高为content+padding+border
 ```
 
-* `CSS`选择符有哪些？哪些属性可以继承？哪些属性不可继承？
+* `CSS`选择符有哪些？哪些属性可以继承？优先级算法如何计算？CSS3新增伪类有哪些？
 
 ```
 * 1.id选择器（#id）
@@ -64,18 +64,21 @@ IE盒子模型：宽高为content+padding+border
     size、page-break-before、page-break-after
   9.声音样式属性：
     pause-before、pause-after、pause、cue-before、cue-after、cue、play-during
-```
-
-* `CSS`优先级算法如何计算？
-
-```
-* 优先级就近原则，同权重情况下样式定义最近者为准；
-* 载入样式以最后载入的定位为准。
-
+    
 优先级算法：
-    同权重：内联样式表（标签内部） > 嵌入样式表（当前文件中） > 外部样式表（外部文件）
-    !important > id > class > tag
-    important比内联优先级高
+1.优先级就近原则，同权重情况下样式定义最近者为准
+2.载入样式以最后载入的定位为准
+3.!important > id > class > tag
+4.important比内联优先级高
+
+CSS3新增伪类举例：
+p:first-of-type 选择属于其父元素的首个 <p> 元素的每个 <p> 元素。
+p:last-of-type  选择属于其父元素的最后 <p> 元素的每个 <p> 元素。
+p:only-of-type  选择属于其父元素唯一的 <p> 元素的每个 <p> 元素。
+p:only-child    选择属于其父元素的唯一子元素的每个 <p> 元素。
+p:nth-child(2)  选择属于其父元素的第二个子元素的每个 <p> 元素。
+:enabled :disabled 控制表单控件的禁用状态。
+:checked        单选框或复选框被选中。
 ```
 
 * 如何居中`div`？
