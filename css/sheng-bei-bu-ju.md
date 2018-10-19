@@ -97,23 +97,23 @@
 /*省略部分相同的代码*/
 <style>
 .main {
-	box-sizing: border-box;
-	padding: 0 200px;
-	width: 100%;
-	background-color: red;
+    box-sizing: border-box;
+    padding: 0 200px;
+    width: 100%;
+    background-color: red;
 }
 .left {
-	width: 200px;
-	margin-left: -100%;
-	opacity: 0.6;
-	background-color: blue;
+    width: 200px;
+    margin-left: -100%;
+    opacity: 0.6;
+    background-color: blue;
 }
 .right {
-	width: 200px;
-	margin-left: -200px;
-	opacity: 0.6;
-	background-color: yellow;
-	}
+    width: 200px;
+    margin-left: -200px;
+    opacity: 0.6;
+    background-color: yellow;
+    }
 </style>
 /*省略部分相同的代码*/
 ```
@@ -205,4 +205,6 @@
 * 双飞翼布局是中间栏不变，存放内容的部分为两边腾开位置
 
 ![](/assets/圣杯&双飞翼2.png)
+
+参考连接：[https://juejin.im/entry/5a8868cdf265da4e7e10c133](https://juejin.im/entry/5a8868cdf265da4e7e10c133)
 
