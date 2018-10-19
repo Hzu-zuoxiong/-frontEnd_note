@@ -4,7 +4,7 @@
 
 ## 圣杯布局
 
-### 思路：
+### 思路一：
 
 1. `main`设置`width: 100%;`让它占满窗口，才能有自适应效果
 2. 为了形成一行三栏的布局，给三个`div`设置`float: left;`（为父元素创建BFC，否则会造成父元素高度塌陷）
@@ -18,71 +18,104 @@
 
 圣杯布局局限：存在一个最小宽度，当页面小于最小宽度时布局就会乱掉。所以最好给`body`设置一个`min-width`，`min-width = leftWidth * 2 + rightWidth`。原因：**因为设置了相对定位，所以当left块原来的位置和right块的位置产生重叠时，由于浮动的原因一行放不下就会换行，布局就被打乱了**。
 
-### 实现代码：
+### 思路二：
+
+1. 前面四步与思路一一样，第五步的解决方法与思路一不同。
+2. 将`main`块的盒子模型设置为`border-box;`（设置为`border-box`，`content`的宽则为`width-padding-border`）
+3. 然后再为`main`块设置左右`padding`，即可为`left`块与`right`块腾出两侧的位置
+
+### 思路一实现代码：
 
 ```css
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style type="text/css">
-	* {
-		margin: 0;
-		padding: 0;
-	}
-        header {
-        	text-align: center;
-        	background-color: #eee;
-        }
-        footer {
-        	text-align: center;
-        	background-color: #eee;
-        }
-        .bg {
-        	overflow: hidden;          /*创建BFC*/
-        	padding: 0 200px;
-        	background-color: #999;
-        }
-        .bg .text {
-        	float: left;
-        	text-align: center;
-        	line-height: 300px;
-        	font-size: 64px;
-        	height: 300px;
-        }
-	.main {
-		width: 100%;
-		background-color: red;
-	}
-	.left {
-		position: relative;
-		left: -200px;
-		width: 200px;
-		margin-left: -100%;
-		opacity: 0.6;
-		background-color: blue;
-	}
-	.right {
-		position: relative;
-		left: 200px;
-		width: 200px;
-		margin-left: -200px;
-		opacity: 0.6;
-		background-color: yellow;
-	}
-	</style>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        text-align: center;
+        background-color: #eee;
+    }
+    footer {
+        text-align: center;
+        background-color: #eee;
+    }
+    .bg {
+        overflow: hidden;          /*创建BFC*/
+        padding: 0 200px;
+        background-color: #999;
+    }
+    .bg .text {
+        float: left;
+        text-align: center;
+        line-height: 300px;
+        font-size: 64px;
+        height: 300px;
+    }
+    .main {
+        width: 100%;
+        background-color: red;
+    }
+    .left {
+        position: relative;
+        left: -200px;
+        width: 200px;
+        margin-left: -100%;
+        opacity: 0.6;
+        background-color: blue;
+    }
+    .right {
+        position: relative;
+        left: 200px;
+        width: 200px;
+        margin-left: -200px;
+        opacity: 0.6;
+        background-color: yellow;
+    }
+    </style>
 </head>
 <body>
-	<header>圣杯布局</header>
-	<div class="bg">
-		<div class="main text">main main main main</div>
-		<div class="left text">left</div>
-		<div class="right text">right</div>
-	</div>
-	<footer>footer</footer>
+    <header>圣杯布局</header>
+    <div class="bg">
+        <div class="main text">main main main main</div>
+        <div class="left text">left</div>
+        <div class="right text">right</div>
+    </div>
+    <footer>footer</footer>
 </body>
 </html>
+```
+
+### 思路二实现代码：
+
+```css
+/*省略部分相同的代码*/
+<style>
+.main {
+	box-sizing: border-box;
+	padding: 0 200px;
+	width: 100%;
+	background-color: red;
+}
+.left {
+	width: 200px;
+	margin-left: -100%;
+	opacity: 0.6;
+	background-color: blue;
+}
+.right {
+	width: 200px;
+	margin-left: -200px;
+	opacity: 0.6;
+	background-color: yellow;
+	}
+</style>
+/*省略部分相同的代码*/
 ```
 
 ### 效果如下：![](/assets/圣杯布局.png)
@@ -96,67 +129,67 @@
 
 ### 实现代码：
 
-```
+```css
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style type="text/css">
-	* {
-		margin: 0;
-		padding: 0;
-	}
-        header {
-        	text-align: center;
-        	background-color: #eee;
-        }
-        footer {
-        	text-align: center;
-        	background-color: #eee;
-        }
-        .bg {
-        	overflow: hidden;
-        	background-color: #999;
-        }
-        .bg .text {
-        	float: left;
-        	text-align: center;
-        	line-height: 300px;
-        	font-size: 64px;
-        	height: 300px;
-        }
-	.main {
-		width: 100%;
-		background-color: red;
-	}
-	.main-content {
-		margin: 0 200px 0 200px;
-	}
-	.left {
-		width: 200px;
-		opacity: 0.6;
-		margin-left: -100%;
-		background-color: blue;
-	}
-	.right {
-		width: 200px;
-		opacity: 0.6;
-		margin-left: -200px;
-		background-color: yellow;
-	}
-	</style>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        text-align: center;
+        background-color: #eee;
+    }
+    footer {
+        text-align: center;
+        background-color: #eee;
+    }
+    .bg {
+        overflow: hidden;
+        background-color: #999;
+    }
+    .bg .text {
+        float: left;
+        text-align: center;
+        line-height: 300px;
+        font-size: 64px;
+        height: 300px;
+    }
+    .main {
+        width: 100%;
+        background-color: red;
+    }
+    .main-content {
+        margin: 0 200px 0 200px;
+    }
+    .left {
+        width: 200px;
+        opacity: 0.6;
+        margin-left: -100%;
+        background-color: blue;
+    }
+    .right {
+        width: 200px;
+        opacity: 0.6;
+        margin-left: -200px;
+        background-color: yellow;
+    }
+    </style>
 </head>
 <body>
-	<header>双飞翼布局</header>
-	<div class="bg">
-		<div class="main text">
-			<div class="main-content">main</div>
-		</div>
-		<div class="left text">left</div>
-		<div class="right text">right</div>
-	</div>
-	<footer>footer</footer>
+    <header>双飞翼布局</header>
+    <div class="bg">
+        <div class="main text">
+            <div class="main-content">main</div>
+        </div>
+        <div class="left text">left</div>
+        <div class="right text">right</div>
+    </div>
+    <footer>footer</footer>
 </body>
 </html>
 ```
