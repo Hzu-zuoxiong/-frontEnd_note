@@ -238,16 +238,23 @@ event.emit('test');                                // 未被触发
 * 实现对象的深拷贝
 
 ```js
-function deepClone(o1, o2) {
-    for(let k in o2) {
-        if(Object.prototype.toString.call(o2[k]) === "[object Array]") {
-            o1[k] = o2[k];
-        } else if(typeof o2[k] === 'object') {
-            o1[k] = {};
-            deepClone(o1[k], o2[k]);
-        } else {
-            o1[k] = o2[k];
+function deepClone(obj) {
+    var buf;
+    if(obj instanceof Array) {
+        buf = [];
+        var i = obj.length;
+        while(i--) {
+            buf[i] = deepClone(obj[i]);
         }
+        return buf;
+    } else if(obj instanceof Object) {
+        buf = {};
+        for(var k in obj) {
+            buf[k] = deepClone(obj[k]);
+        }
+        return buf;
+    } else {
+        return obj;
     }
 }
 
@@ -265,10 +272,8 @@ let obj = {
         }
     }
 }
-let emptyObj = Object.create(null);
-deepClone(emptyObj, obj);
-console.log(emptyObj);
-console.log(emptyObj.d.s.b == obj.d.s.b);
+let emptyObj = deepClone(obj);
+console.log(emptyObj.d.a[2] === obj.d.a[2]);
 ```
 
 * \["1", "2", "3"\].map\(parseInt\)输出什么？
@@ -285,13 +290,7 @@ console.log(emptyObj.d.s.b == obj.d.s.b);
  // 所以，最后["1", "2", "3"].map(parseInt)输出：[1, NaN, NaN]
 ```
 
-* new操作符具体做了什么
 
-```
-1.创建一个空对象，并且this变量引用该对象，同时还继承了该函数的原型。
-2.属性和方法都添加到this引用的对象中。
-3.新创建的对象由this所引用，并且最后隐式返回this。
-```
 
 
 
