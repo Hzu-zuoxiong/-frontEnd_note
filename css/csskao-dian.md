@@ -146,7 +146,7 @@ div {
 absolute的“根元素”是可以设置的，而fixed的“根元素”固定为浏览器窗口
 ```
 
-* 解析下CSS sprites，以及你要如何在页面或网站中使用它？
+* 解析下`CSS sprites`，以及你要如何在页面或网站中使用它？
 
 ```
 CSS sprites 就是把网页中一些被背景图片整合到一张图片文件中，再利用CSS的background-image、background-repeat、
@@ -154,7 +154,7 @@ background-position的组合进行背景定位，background-position可以用数
 的开销，因为请求消耗时比较长；请求虽然可以并发，但也有限制，一般浏览器都是6个。
 ```
 
-* CSS预处理器有哪些优缺点？
+* `CSS`预处理器有哪些优缺点？
 
 ```
 优点：
@@ -181,7 +181,7 @@ background-position的组合进行背景定位，background-position可以用数
 3.一正一负，取两个值相加的和
 ```
 
-* display: none与visibility: hidden都可隐藏元素，二者有何区别？
+* `display: none`与`visibility: hidden`都可隐藏元素，二者有何区别？
 
 ```
 display:none：将CSS属性display定义为none后，相当于元素没有了后代元素，在正常流中不占用任何空间，元素的真实尺寸将会丢失，还会
@@ -196,6 +196,92 @@ visibility:hidden：将CSS属性visibility定义为hidden后，在正常流中�
 <div style="visibility:hidden;">
     <div style="background:url(lake.png)"></div>
 </div>
+```
+
+* `CSS`中类选择器和`ID`选择器有哪些区别？
+
+```
+1.类选择器是以点号(.)开头，ID选择器是以井号(#)开头
+2.类选择器根据class属性的值选择元素，ID选择器根据id属性的值选择元素
+3.类选择器可以应用于多个元素，ID选择器只能应用于一个元素
+4.ID选择器的权重比类选择器的要高
+```
+
+* `a`链接有四种状态包括未访问\(`:link`\)、已访问\(`:visited`\)、激活\(`.active`\)和悬停\(`:hover`\)，声明的顺序是怎样的。
+
+```
+推荐使用LVHA(love hate)的顺序，这四种状态的特殊性相同，因此影响权重的只有在样式表中所处的位置了。
+1.当鼠标悬浮在未访问或已访问链接时，会存在两种状态:link与:hover或:visited与:hover，如果:hover声明在:link或:visited之前，
+  那么:hover就会覆盖掉。
+2.当鼠标点中链接时，会存在两种状态:active和:hover，如果:active声明在:hover之前，那么会被覆盖掉。
+3.因此:hover与:active必须在:link与:visited之后，而:active必须在:hover之后，至于:link与:visited它们两的顺序可以互换。
+```
+
+* 用过`calc()`函数吗？它是什么，有什么作用？
+
+```
+calc()是CSS的一个函数，只有一个数学表达式参数，此函数可处理加减乘除等数学运算，并且在表达式中可混用不同的单位，代码如下。
+div {
+    width: calc(50%-2px)
+}
+在用百分比做自适应布局的时候，如果进行计算会比较困难，例如为了两个有边框的元素排列在一行，需要准确地算出各个元素的宽度，而宽度
+都是百分数，边框却是像素值。不同单位，很难得出结果，但有了calc()函数，结果就能手到擒来。
+```
+
+* 执行下面的代码，经过计算后，`p`元素的真实行高为多少？
+
+```css
+div {
+    font-size: 18px;
+    line-height:14px;
+}
+div p {
+    line-height: 50%;  /* 9px */
+}
+
+/*
+行高参照的是元素自身的字体大小(font-size)，p元素自身没有定义字体，需要从父元素div中继承过来，继承过来的值为18px，再乘以50%，
+可以得到p元素的最终行高9px。
+*/
+```
+
+* `line-height: 1.5`与`line-height: 150%`的区别
+
+```
+区别体现在子元素继承时，如下：
+* line-height: 1.5; 会直接继承给子元素，子元素根据自己的font-size再去计算子元素的line-height
+* line-height: 150%; 是计算好了line-height值，然后把这个计算值给子元素继承，子元素拿到的就是最终值。此时，子元素设置
+  font-size就对其line-height无影响。  
+```
+
+* `CSS`中使用`background: transparent`与`opacity: 0`有什么区别？
+
+```
+在CSS中，transparent关键字相当于rgba(0, 0, 0, 0)，作为background的属性值，仅仅是将元素的背景设为透明，元素中的内容还能显示。
+而opacity会把元素和内容当成一个整体，当定义为0时，两者都会透明。
+```
+
+* 执行下面代码，虽然给`p`元素设置了`15px`上外边距，但为何失效？
+
+```css
+<style>
+div {
+    float: left;
+    width: 80px;
+    height: 80px;
+}
+p {
+    clear: both;
+    margin-top: 15px;
+}
+</style>
+<div></div>
+<p>已设置上外边距</p>
+
+/*
+浮动元素会脱离正常流，clear属性会让元素增加上外边距，使其在浮动元素的下面，在上面的代码中，浮动元素的高是80px，所以clear属性
+会给p元素增加80px的上外边距，比定义的15px要大，所以最终的上外边距是80px，正好在浮动元素的下面。
+*/
 ```
 
 
