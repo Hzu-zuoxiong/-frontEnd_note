@@ -55,4 +55,5 @@
   * [快速排序](sort/kuai-su-pai-xu.md)
 * [Vue](vue.md)
   * [Vue响应式原理](vue/vuexiang-ying-shi-yuan-li.md)
+  * [MVVM](vue/mvvm.md)
 
