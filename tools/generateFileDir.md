@@ -1,14 +1,14 @@
-# Markdown表示文件目录
+# Markdown 生成文件目录
 
-在编写README.md文件时，经常需要列出整个项目的文件目录结构。
+在编写 README.md 文件时，经常需要列出整个项目的文件目录结构。
 
-## 方法1
+## 方法 1
 
 使用一个三重反引号（```）将目录结构包起来：
 
 ![](/assets/tools/generateFileDir1.png)
 
-## 方法2
+## 方法 2
 
 使用一个 `Node` 模块来生成文件目录: `mddir`
 
