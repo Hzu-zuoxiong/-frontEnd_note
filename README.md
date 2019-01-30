@@ -61,3 +61,9 @@
   - [MVVM](vue/mvvm.md)
 - tools
   - [markdown 生成目录结构](tools/generateFileDir.md)
+- Weex
+  - [Weex与Web平台的差异](weex/diff_between_Weex_and_Web.md)
+  - [Weex样式](weex/Weex_Style.md)
+  - [Weex事件](weex/Weex_Event.md)
+  - [Weex事例对象](weex/Weex_instance_variables.md)
+  - [Weex BroadcastChannel](weex/Weex_BroadcastChannel.md)
