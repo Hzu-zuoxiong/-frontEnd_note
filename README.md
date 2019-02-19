@@ -22,7 +22,7 @@
   - [DOM 事件](javascript/dom_event.md)
   - [定时器原理](javascript/timer_principle.md)
   - [事件循环](javascript/event_loop.md)
-  - [JS继承](javascript/js_inherited.md)
+  - [JS 继承](javascript/js_inherited.md)
   - [this、apply、call、bind](javascript/this_apply_call_bind.md)
   - [防抖与节流](javascript/debounce_and_throttle.md)
   - [jQuery](javascript/jquery.md)
@@ -61,8 +61,9 @@
 - tools
   - [markdown 生成目录结构](tools/generateFileDir.md)
 - Weex
-  - [Weex与Web平台的差异](weex/diff_between_Weex_and_Web.md)
-  - [Weex样式](weex/Weex_Style.md)
-  - [Weex事件](weex/Weex_Event.md)
-  - [Weex事例对象](weex/Weex_instance_variables.md)
+  - [Weex 与 Web 平台的差异](weex/diff_between_Weex_and_Web.md)
+  - [Weex 样式](weex/Weex_Style.md)
+  - [Weex 事件](weex/Weex_Event.md)
+  - [Weex 事例对象](weex/Weex_instance_variables.md)
   - [Weex BroadcastChannel](weex/Weex_BroadcastChannel.md)
+  - [Weex 项目应用](weex/Weex_Application.md)

@@ -37,6 +37,8 @@ git rm --cached README
 git commit -m '提交描述'
 // 撤回已commit过的内容文件，重新进行提交
 git commit --amend
+// 查看本地已commit，但未push的版本
+git cherry -v
 
 // 将当前分支提交到远程分支
 git push <远程主机名> <本地分支名>:<远程分支命>
