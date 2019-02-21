@@ -42,6 +42,7 @@
   - [浏览器缓存](browser/browser_cache.md)
   - [跨域问题](browser/cross_domain.md)
   - [CORS](browser/cors.md)
+  - [Chrome debug](browser/chrome_debug.md)
 - JS 面试题
   - [前端知识点](JS_interviewQuestions/qian-duan-kao-dian.md)
   - [JS 常考算法](JS_interviewQuestions/suan-fa-zhuan-ti-yi.md)
