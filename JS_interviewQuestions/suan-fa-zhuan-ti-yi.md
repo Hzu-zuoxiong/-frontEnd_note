@@ -290,7 +290,18 @@ console.log(emptyObj.d.a[2] === obj.d.a[2]);
  // 所以，最后["1", "2", "3"].map(parseInt)输出：[1, NaN, NaN]
 ```
 
+* 将一个多维数组降为一维数组
 
+```js
+const flattenDeep = arr =>
+  Array.isArray(arr)
+    ? arr.reduce((a, b) => [...a, ...flattenDeep(b)], [])
+    : [arr];
+
+var arr1 = [1,2,[1,2,[1,2]]];
+
+flattenDeep(arr1); //[1, 2, 1, 2, 1, 2]
+```
 
 
 
