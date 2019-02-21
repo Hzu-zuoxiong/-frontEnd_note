@@ -142,3 +142,6 @@
 &emsp;&emsp;使用 `DevTools' Drawer` 中的更改工具。它不仅会使用差异形式的变化（像 `Git` 这样的源控制工具一样）向你展示，同时还可以撤销它们。
 
 ![](../assets/browser/chrome_debug_changes)
+
+
+> 总结自掘金小册 [《你不知道的 Chrome 调试技巧》](https://juejin.im/book/5c526902e51d4543805ef35e)
