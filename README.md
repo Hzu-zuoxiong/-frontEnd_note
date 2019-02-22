@@ -49,6 +49,7 @@
   - [前端知识点](JS_interviewQuestions/qian-duan-kao-dian.md)
   - [JS 常考算法](JS_interviewQuestions/suan-fa-zhuan-ti-yi.md)
   - [14 道 JavaScript 题](JS_interviewQuestions/14dao-javascript-ti.md)
+  - [深浅拷贝](JS_interviewQuestions/shallow_and_deep_copy.md)
 - Network
   - [HTTP](network/http.md)
   - [TCP/IP](network/tcpip.md)
