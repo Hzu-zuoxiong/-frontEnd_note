@@ -1,20 +1,22 @@
-# frontEnd_note
+# 前端知识总结
 
 记录自己所学的知识点。目前结构有点混乱，正在逐步调整。
 
-# Summary
+## 目录
 
 - HTML
   - [HTML 知识点](html/html_knowledge_points.md)
   - [HTML5](html/html5.md)
 - CSS
+  - 三栏布局
+    - [左右高度定宽，中间自适应](css/three_column_layout/left_and_right_set_high.md)
+    - [上下高度固定，中间自适应](css/three_column_layout/up_and_down_set_high.md)
+  - 屏幕适配
+    - [iphoneX 适配](css/screen_fit/iphoneX_adaptation.md)
   - [CSS 知识点](css/css_knowledge_points.md)
   - [CSS 盒模型](css/css_box_model.md)
   - [em 与 rem 的区别](css/diff_between_em_and_rem.md)
   - [一行居中，多行左对齐](css/line_center_or_lines_left_align.md)
-  - 三栏布局
-    - [左右高度定宽，中间自适应](css/san-lan-bu-ju/left_and_right_set_high.md)
-    - [上下高度固定，中间自适应](css/san-lan-bu-ju/up_and_down_set_high.md)
   - [块级格式化上下文](css/block_formatting_context.md)
   - [圣杯布局&双飞翼布局](css/grail_layout_and_dual_flying_wings_layout.md)
 - JavaScript
