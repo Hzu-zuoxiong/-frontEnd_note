@@ -16,6 +16,7 @@
   - [CSS 知识点](css/css_knowledge_points.md)
   - [CSS 盒模型](css/css_box_model.md)
   - [em 与 rem 的区别](css/diff_between_em_and_rem.md)
+  - [重绘与回流](css/repaint_and_reflow.md)
   - [一行居中，多行左对齐](css/line_center_or_lines_left_align.md)
   - [块级格式化上下文](css/block_formatting_context.md)
   - [圣杯布局&双飞翼布局](css/grail_layout_and_dual_flying_wings_layout.md)
