@@ -22,7 +22,6 @@
 - JavaScript
   - [JavaScript 知识点](javascript/JS_knowledge_points.md)
   - [变量提升](javascript/improve_variable.md)
-  - [DOM 事件](javascript/dom_event.md)
   - [定时器原理](javascript/timer_principle.md)
   - [事件循环](javascript/event_loop.md)
   - [JS 继承](javascript/js_inherited.md)
@@ -43,6 +42,7 @@
 - Browser
   - [浏览器知识点](browser/browser_knowledge_points.md)
   - [浏览器缓存](browser/browser_cache.md)
+  - [DOM 事件机制](browser/dom_event.md)
   - [跨域问题](browser/cross_domain.md)
   - [CORS](browser/cors.md)
   - [Chrome debug](browser/chrome_debug.md)
