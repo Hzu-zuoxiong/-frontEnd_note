@@ -36,42 +36,42 @@
 </html>
 ```
 
-* **不使用防抖，数字会疯狂地增长。**
+- **不使用防抖，数字会疯狂地增长。**
 
-* 使用防抖（只执行最后一次）
+- 使用防抖（只执行最后一次）
 
 ```js
 function debounce(fn, delay) {
-    let timer;
-    return (...args) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            fn.apply(this, args);
-        }, delay);
-    }
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(this, args);
+    }, delay);
+  };
 }
 doc.onmousemove = debounce(todo, 1000);
 ```
 
-* 使用防抖（只开头执行）
+- 使用防抖（只开头执行）
 
 ```js
 function debounce(fn, delay, isImmediate) {
-	let timer;
-	return (...args) => {
-		clearTimeout(timer);
-		if(isImmediate) {
-			var isTrigger = !timer;
-			timer = setTimeout(() => {
-				timer = null;
-			}, delay);
-			isTrigger && fn.apply(this, args);
-		} else {
-			timer = setTimeout(() => {
-				fn.apply(this,args);
-			}, delay);
-		}
-	}
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    if (isImmediate) {
+      var isTrigger = !timer;
+      timer = setTimeout(() => {
+        timer = null;
+      }, delay);
+      isTrigger && fn.apply(this, args);
+    } else {
+      timer = setTimeout(() => {
+        fn.apply(this, args);
+      }, delay);
+    }
+  };
 }
 doc.onmousemove = debounce(todo, 1000, true);
 ```
@@ -80,38 +80,41 @@ doc.onmousemove = debounce(todo, 1000, true);
 
 **节流的目的是保证某个操作在一个时间段内只执行一次**。
 
-* 使用节流（利用时间戳，开始立即执行一次，最后不执行）
+- 使用节流（利用时间戳，开始立即执行一次，最后不执行）
 
 ```js
 function throttle(fn, delay) {
-	let initTime = 0;
-	return (...args) => {
-		let now = +new Date();
-		if(now - initTime > delay) {
-			fn.apply(this, args);
-			initTime = now;
-		}
-	}
+  let initTime = 0;
+  return (...args) => {
+    let now = +new Date();
+    if (now - initTime > delay) {
+      fn.apply(this, args);
+      initTime = now;
+    }
+  };
 }
 doc.onmousemove = throttle(todo, 1000);
 ```
 
-* 使用节流（利用定时器，开始不执行，最后执行一次）
+- 使用节流（利用定时器，开始不执行，最后执行一次）
 
 ```js
 function throttle(fn, delay) {
-	let timer = 0;
-	return (...args) => {
-		if(!timer) {
-			timer = setTimeout(() => {
-				timer = null;
-				fn.apply(this, args);
-			}, delay);
-		}
-	}
+  let timer = 0;
+  return (...args) => {
+    if (!timer) {
+      timer = setTimeout(() => {
+        timer = null;
+        fn.apply(this, args);
+      }, delay);
+    }
+  };
 }
 doc.onmousemove = throttle(todo, 1000);
 ```
+
+## 总结
+
+&emsp;&emsp;防抖和节流的作用都是防止函数多次调用。区别在于，假设一个用户一直触发这个函数，且每次触发函数的间隔小于 `wait`，防抖的情况下只会调用一次，而节流的 情况会每隔一定时间（参数 `wait`）调用函数。
 
 参考链接：[https://juejin.im/post/5b45fa596fb9a04fad3a0268](https://juejin.im/post/5b45fa596fb9a04fad3a0268)
-

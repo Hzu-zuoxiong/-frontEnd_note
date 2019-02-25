@@ -6,7 +6,7 @@
 
 **定义：** 在指定的延时时间之后调用一个函数或者代码片段。
 
-**语法：** 
+**语法：**
 
 ```
 /**
@@ -20,11 +20,12 @@ var timeoutID = setTimeout(function[, delay, param1, param2, ...]);
 // 可以使用字符串代替 function，在 delay 毫秒后执行字符串（不推荐）
 var timeoutID = setTimeout(code[, delay]);
 ```
-> 注：IE9及更早的IE浏览器不支持第二种语法中向延迟函数传递额外参数的功能。
+
+> 注：IE9 及更早的 IE 浏览器不支持第二种语法中向延迟函数传递额外参数的功能。
 
 `setTimeout(fn,0)` 的含义是，它在"任务队列"的尾部添加一个事件，因此要等到同步任务和"任务队列"现有的事件都处理完，才会得到执行。
 
-`HTML5` 标准规定了 `setTimeout()` 的第二个参数的最小值，不得低于4毫秒，如果低于这个值，就会自动增加。另外，对于 `DOM` 的变动（尤其是涉及页面重新渲染的部分），通常不会立即执行，而是每 `16` 毫秒执行依次，这时使用 `requestAnimationFrame()` 的效果好于 `setTimeout()`。
+`HTML5` 标准规定了 `setTimeout()` 的第二个参数的最小值，不得低于 4 毫秒，如果低于这个值，就会自动增加。另外，对于 `DOM` 的变动（尤其是涉及页面重新渲染的部分），通常不会立即执行，而是每 `16` 毫秒执行依次，这时使用 `requestAnimationFrame()` 的效果好于 `setTimeout()`。
 
 `setTimeout()` 只是将事件插入“任务队列”，必须等到当前代码执行完，主线程才会执行它指定的回调函数。若当前代码耗时长，则无法保证回调函数一定会在 `setTimeout()` 指定的时间执行。
 
@@ -36,10 +37,10 @@ var timeoutID = setTimeout(code[, delay]);
 
 ## 第二个参数（delay）
 
-由于 `javascript` 的事件循环机制，导致第二个参数并不代表延迟 `delay` 毫秒之后立即执行回调函数，而是将回调函数加入事件队列。
+&emsp;&emsp;由于 `javascript` 的事件循环机制，导致第二个参数并不代表延迟 `delay` 毫秒之后立即执行回调函数，而是将回调函数加入事件队列。
 
-* `setTimeout`：延时 `delay` 毫秒之后，将回调函数加入事件队列。
-* `setInterval`：延时 `delay` 毫秒之后，判断事件队列中是否存在未执行的回调函数，若没有，则将回调函数加入事件队列；若有则不往事件队列里加入回调函数。
+- `setTimeout`：延时 `delay` 毫秒之后，将回调函数加入事件队列。
+- `setInterval`：延时 `delay` 毫秒之后，判断事件队列中是否存在未执行的回调函数，若没有，则将回调函数加入事件队列；若有则不往事件队列里加入回调函数。
 
 ## 代码演示：
 
@@ -47,11 +48,11 @@ var timeoutID = setTimeout(code[, delay]);
 
 ```js
 var timerStart1 = new Date();
-setTimeout(function () {
+setTimeout(function() {
   console.log('第一个setTimeout回调执行等待时间：', new Date() - timerStart1);
 
   var timerStart2 = new Date();
-  setTimeout(function () {
+  setTimeout(function() {
     console.log('第二个setTimeout回调执行等待时间：', new Date() - timerStart2);
   }, 100);
 }, 100);
@@ -63,15 +64,15 @@ setTimeout(function () {
 
 ```js
 var timerStart1 = new Date();
-setTimeout(function () {
+setTimeout(function() {
   console.log('第一个setTimeout回调执行等待时间：', new Date() - timerStart1);
 
   var timerStart2 = new Date();
-  setTimeout(function () {
+  setTimeout(function() {
     console.log('第二个setTimeout回调执行等待时间：', new Date() - timerStart2);
   }, 100);
 
-  heavyTask();  // 耗时任务
+  heavyTask(); // 耗时任务
 }, 100);
 
 var loopStart = new Date();
@@ -80,8 +81,7 @@ console.log('heavyTask耗费时间：', new Date() - loopStart);
 
 function heavyTask() {
   var s = new Date();
-  while(new Date() - s < 1000) {
-  }
+  while (new Date() - s < 1000) {}
 }
 // heavyTask耗费时间： 1000
 // 第一个setTimeout回调执行等待时间： 1010
@@ -100,7 +100,7 @@ function heavyTask() {
 
 ```js
 var intervalStart = new Date();
-setInterval(function () {
+setInterval(function() {
   console.log('interval距定义定时器的时间：', new Date() - loopStart);
 }, 100);
 
@@ -110,8 +110,7 @@ console.log('heavyTask耗费时间：', new Date() - loopStart);
 
 function heavyTask() {
   var s = new Date();
-  while(new Date() - s < 1000) {
-  }
+  while (new Date() - s < 1000) {}
 }
 // heavyTask耗费时间： 1001
 // interval距定义定时器的时间： 1014
@@ -124,4 +123,3 @@ function heavyTask() {
 ![](/assets/javascript/setInterval.png)
 
 参考链接：[https://segmentfault.com/a/1190000003764106](https://segmentfault.com/a/1190000003764106)
-
