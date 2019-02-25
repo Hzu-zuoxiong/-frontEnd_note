@@ -28,6 +28,7 @@
   - [JS 继承](javascript/js_inherited.md)
   - [this、apply、call、bind](javascript/this_apply_call_bind.md)
   - [防抖与节流](javascript/debounce_and_throttle.md)
+  - [正则表达式](javascript/RegExp.md)
   - [jQuery](javascript/jquery.md)
 - ECMAScript6
   - [let 和 const](ES6/let_and_const.md)
