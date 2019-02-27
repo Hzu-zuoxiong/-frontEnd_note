@@ -1,6 +1,4 @@
-# `Weex` 应用
-
-## `Weex` 加载三端(`android ios web`)本地图片
+# `Weex` 加载三端(`android ios web`)本地图片
 
 由于三端图片路径不一致，所以需要写一个方法来分别转换路径：
 
