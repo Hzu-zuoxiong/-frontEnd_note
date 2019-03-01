@@ -84,3 +84,27 @@ var obj = {
   const clone = await structuralClone(obj) // {a: 1, b: { c : b }, e: undefined}
 })()
 ```
+
+常规使用深拷贝时的写法。
+
+```js
+function deepClone(obj) {
+    var buf;
+    if(obj instanceof Array) {
+        buf = [];
+        var i = obj.length;
+        while(i--) {
+            buf[i] = deepClone(obj[i]);
+        }
+        return buf;
+    } else if(obj instanceof Object) {
+        buf = {};
+        for(var k in obj) {
+            buf[k] = deepClone(obj[k]);
+        }
+        return buf;
+    } else {
+        return obj;
+    }
+}
+```
