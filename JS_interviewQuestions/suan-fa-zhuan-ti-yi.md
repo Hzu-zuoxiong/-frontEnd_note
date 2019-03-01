@@ -279,5 +279,13 @@ var arr1 = [1,2,[1,2,[1,2]]];
 flattenDeep(arr1); //[1, 2, 1, 2, 1, 2]
 ```
 
+- 实现数组乱序
 
+```js
+var arr = [1,2,3,4,5,6,7,8,9,10];
+arr.sort(function(){
+    return Math.random() - 0.5;
+})
+console.log(arr);  // [3, 2, 1, 6, 5, 7, 4, 8, 9, 10]
+```
 
