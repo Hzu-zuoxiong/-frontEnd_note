@@ -9,12 +9,29 @@ function times(str,n){
 }
 ```
 
-* 编写一个函数判断参数是否是数组类型，是返回true;
+* 如何通过JS判断一个数组
 
 ```js
-function isArray(arr) {
-    return Object.prototype.toString.call(arr) === '[Object Array]';
+// instanceof 方法
+var arr = [];
+arr instanceof Array; // true
+
+// constructor 方法
+var arr = [];
+arr.constructor == Array; //true
+
+// 最简单最常用的
+Object.prototype.toString.call(value) == '[object Array]'
+// 利用这个方法，可以写一个返回数据类型的方法
+var isType = function (obj) {
+     return Object.prototype.toString.call(obj).slice(8,-1);
 }
+
+// ES5 新增方法：isArray()
+var a = new Array(123);
+var b = new Date();
+console.log(Array.isArray(a)); //true
+console.log(Array.isArray(b)); //false
 ```
 
 * 仿JQuery实现JSONP
@@ -118,7 +135,7 @@ function traverse(oNode) {
 
 ![](/assets/CSS小三角形.png)
 
-```css
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -235,48 +252,7 @@ event.off('test');                                 // 解绑事件
 event.emit('test');                                // 未被触发
 ```
 
-* 实现对象的深拷贝
-
-```js
-function deepClone(obj) {
-    var buf;
-    if(obj instanceof Array) {
-        buf = [];
-        var i = obj.length;
-        while(i--) {
-            buf[i] = deepClone(obj[i]);
-        }
-        return buf;
-    } else if(obj instanceof Object) {
-        buf = {};
-        for(var k in obj) {
-            buf[k] = deepClone(obj[k]);
-        }
-        return buf;
-    } else {
-        return obj;
-    }
-}
-
-// 测试
-let obj = {
-    a: 1,
-    b: 'string',
-    c: [1,2,3],
-    d: {
-        b: 1,
-        a: [5,'w',{z:5, b:3}],
-        z: 'string',
-        s: {
-            b:2
-        }
-    }
-}
-let emptyObj = deepClone(obj);
-console.log(emptyObj.d.a[2] === obj.d.a[2]);
-```
-
-* \["1", "2", "3"\].map\(parseInt\)输出什么？
+* `["1", "2", "3"].map(parseInt)` 输出什么？
 
 ```js
 // parseInt函数能解析一个字符串，并返回一个整数，需要两个参数(val, radix)，其中radix表示要解析的字符串的基数【该值介于2~36之间，
