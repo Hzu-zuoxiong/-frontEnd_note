@@ -58,11 +58,8 @@
   - [HTTP](network/http.md)
   - [TCP / IP](network/tcpip.md)
   - [UDP](network/udp.md)
-- [Sort](sort/sort.md)
-  - [冒泡排序](sort/bubble_sort.md)
-  - [选择排序](sort/select_sort.md)
-  - [插入排序](sort/insert_sort.md)
-  - [快速排序](sort/quick_sort.md)
+- 算法
+  - [各种排序算法](Algorithm/sort/sort.md)
 - `Vue`
   - [Vue 知识点](vue/vuekao-dian.md)
   - [Vue 响应式原理](vue/vuexiang-ying-shi-yuan-li.md)
