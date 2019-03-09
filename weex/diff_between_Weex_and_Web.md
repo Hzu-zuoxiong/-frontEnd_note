@@ -31,8 +31,8 @@
 ### 样式
 
 样式表和 `CSS` 规则是由 `Weex js` 框架和原生渲染引擎管理的。要实现完整的 `CSS` 对象模型（`CSSOM：CSS Object Model`）并支持所有的 `CSS` 规则是非常困难的，而且没有这个必要。出于性能考虑，
-* `Weex` 目前只支持单个类选择器，并且只支持 CSS 规则的子集。
-* 在 Weex 里， 每一个 Vue 组件的样式都是 scoped。
+* `Weex` 目前只支持单个类选择器，并且只支持 `CSS` 规则的子集。
+* 在 `Weex` 里， 每一个 `Vue` 组件的样式都是 `scoped`。
 
 ### 事件
 
@@ -40,7 +40,7 @@
 
 ### `Weex` 能够调用移动设备原生 `API`
 
-&emsp;&emsp;在 Weex 中能够调用移动设备原生 API，使用方法是通过注册、调用模块来实现。其中有一些模块是 Weex 内置的，如 clipboard 、 navigator 、storage 等。
+&emsp;&emsp;在 `Weex` 中能够调用移动设备原生 `API`，使用方法是通过注册、调用模块来实现。其中有一些模块是 `Weex` 内置的，如 `clipboard 、 navigator 、storage` 等。
 
 ## `Overview`
 
