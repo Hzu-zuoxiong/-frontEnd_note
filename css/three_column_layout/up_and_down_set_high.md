@@ -5,6 +5,17 @@
 * 定位布局
 * flex布局
 
+**补充：**
+
+`overflow: auto` 在 `iOS` 上滑动卡顿现象的解决方法：
+
+```css
+body {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+}
+```
+
 ## 定位布局：
 
 ```css
@@ -95,6 +106,4 @@
 ```
 
 ## 效果演示：![](/assets/上下高度固定，中间自适应.png)
-
-
 
