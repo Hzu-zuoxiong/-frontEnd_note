@@ -249,9 +249,8 @@ div p {
 
 ```
 区别体现在子元素继承时，如下：
-* line-height: 1.5; 会直接继承给子元素，子元素根据自己的font-size再去计算子元素的line-height
-* line-height: 150%; 是计算好了line-height值，然后把这个计算值给子元素继承，子元素拿到的就是最终值。此时，子元素设置
-  font-size就对其line-height无影响。
+* line-height: 1.5; 会直接继承给子元素，子元素根据自己的 font-size 再去计算子元素的 line-height
+* line-height: 150%; 是计算好了 line-height 值，然后把这个计算值给子元素继承，子元素拿到的就是最终值。此时，子元素设置 font-size 就对其 line-height 无影响。
 ```
 
 * `CSS`中使用`background: transparent`与`opacity: 0`有什么区别？

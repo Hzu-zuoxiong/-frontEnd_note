@@ -2,7 +2,7 @@
 
 ## **十大排序算法：**
 
-![](/assets/sort.png)
+![](/assets/Algorithm/sort/sort.png)
 
 ## **评述算法优劣的术语：**
 
@@ -16,10 +16,8 @@
 
 ## 几种排序算法的实现
 
-- [冒泡排序](Algorithm/sort/bubble_sort.md)
-- [选择排序](Algorithm/sort/select_sort.md)
-- [插入排序](Algorithm/sort/insert_sort.md)
-- [快速排序](Algorithm/sort/quick_sort.md)
-
-
-
+- [冒泡排序](bubble_sort.md)
+- [选择排序](select_sort.md)
+- [插入排序](insert_sort.md)
+- [快速排序](quick_sort.md)
+- [归并排序](merge_sort.md)
