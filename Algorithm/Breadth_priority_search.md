@@ -2,7 +2,7 @@
 
 ## 定义
 
-> 广度优先算法（`Breadth-First Search`），同广度优先搜索，又称作宽度优先搜索，或横向优先搜索，简称BFS，是一种图形搜索演算法。简单的说，BFS是从根节点开始，沿着树的宽度遍历树的节点，如果发现目标，则演算终止。  ——《百度百科》
+> 广度优先算法（`Breadth-First Search`），同广度优先搜索，又称作宽度优先搜索，或横向优先搜索，简称 BFS，是一种图形搜索演算法。简单的说，BFS 是从根节点开始，沿着树的宽度遍历树的节点，如果发现目标，则演算终止。 ——《百度百科》
 
 ## 思想
 
@@ -15,44 +15,55 @@
 ```js
 // 打印 root 对象中的所有 name 属性
 let root = {
-    name: 'root',
-    children: [{
-        name: '1-1',
-        children: [{
-            name: '2-1',
-            children:[{
-                name:'3-1'
-            }, {
-                name: '3-2'
-            }]
-        }, {
-            name: '2-2',
-            children:[{
-                name: '3-3'
-            }]
-        }]
-    }, {
-        name: '1-2',
-        children:[]
-    }]
-}
+  name: 'root',
+  children: [
+    {
+      name: '1-1',
+      children: [
+        {
+          name: '2-1',
+          children: [
+            {
+              name: '3-1'
+            },
+            {
+              name: '3-2'
+            }
+          ]
+        },
+        {
+          name: '2-2',
+          children: [
+            {
+              name: '3-3'
+            }
+          ]
+        }
+      ]
+    },
+    {
+      name: '1-2',
+      children: []
+    }
+  ]
+};
 
 function bfs(root) {
-    let res = [];
-	let list = [];
-	list.push(root);
-	while(list.length) {
-        let len = list.length;
-		for(let i = 0; i < len; i++) {
-			let cur = list[0];
-			res.push(list[0].name);
-			if(cur.children && cur.children.length) {
-				cur.children.map(item => list.push(item));
-            }
-			list.shift();
-        }
+  let res = [];
+  let list = [];
+  list.push(root);
+  while (list.length) {
+    let len = list.length;
+    for (let i = 0; i < len; i++) {
+      let cur = list[0];
+      res.push(list[0].name);
+      if (cur.children && cur.children.length) {
+        cur.children.map(item => list.push(item));
+      }
+      list.shift();
     }
-    console.log(res);  // ["root", "1-1", "1-2", "2-1", "2-2", "3-1", "3-2", "3-3"]
+  }
+  console.log(res); // ["root", "1-1", "1-2", "2-1", "2-2", "3-1", "3-2", "3-3"]
 }
 
 bfs(root);

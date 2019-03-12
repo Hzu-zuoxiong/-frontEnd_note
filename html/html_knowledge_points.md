@@ -1,6 +1,6 @@
-# HTML考点
+# HTML 考点
 
-* `Doctype`作用？标准模式与兼容模式各有什么区别？
+- `Doctype`作用？标准模式与兼容模式各有什么区别？
 
 ```
 1.<!DOCTYPE>声明位于文档首行，告知浏览器的解析器用什么文档标准进行解析。
@@ -9,14 +9,14 @@
 4.兼容模式中，页面以宽松的方式显示，模拟老式浏览器的行为以防止站点无法工作。
 ```
 
-* `HTML5`为什么只需要写`<!DOCTYPE HTML>` ?
+- `HTML5`为什么只需要写`<!DOCTYPE HTML>` ?
 
 ```
 1.HTML5不基于SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为。
 2.而HTML4.0基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。
 ```
 
-* 行内元素有哪些？块级元素有哪些？空（`void`）元素有哪些？
+- 行内元素有哪些？块级元素有哪些？空（`void`）元素有哪些？
 
 ```
 行内元素：a、em、strong、span、i、img、b、label、select、textarea、sub、sup、q
@@ -24,7 +24,7 @@
 空元素：br、hr
 ```
 
-* `HTML5`有哪些新特性、移除了哪些元素？如何处理`HTML5`新标签的浏览器兼容问题？如何区别`HTML`和`HTML5`？
+- `HTML5`有哪些新特性、移除了哪些元素？如何处理`HTML5`新标签的浏览器兼容问题？如何区别`HTML`和`HTML5`？
 
 ```
 * HTML5 现在不是SGML的子集，主要是关于图像，位置，存储，多任务等功能的增加
@@ -47,7 +47,7 @@
 * 区分HTML5：DOCTYPE声明、新增的结构元素、功能元素
 ```
 
-* 简述一下对`HTML`语义化的理解？
+- 简述一下对`HTML`语义化的理解？
 
 ```
 1.去掉或者丢失样式的时候能够让页面呈现出清晰的结构
@@ -56,7 +56,7 @@
 4.便于团队开发和维护，语义化使得网页更具可读性，是进一步开发网页的必要步骤
 ```
 
-* 浏览器是怎么对`HTML5`的离线存储资源进行管理和加载的？
+- 浏览器是怎么对`HTML5`的离线存储资源进行管理和加载的？
 
 ```
 在线的情况：浏览器发现HTML头部有manifest属性，它会请求manifest文件，如果第一次访问，浏览器会根据manifest文件的内容下载相应的资源
@@ -65,7 +65,7 @@
 离线的情况：浏览器直接使用离线存储的资源。
 ```
 
-* 描述一下`cookie`、`sessionStorage`和`localStorage`的区别？
+- 描述一下`cookie`、`sessionStorage`和`localStorage`的区别？
 
 ```
 cookie是网站为了标识用户身份而存储在用户本地终端的数据（通常经过加密）。
@@ -82,7 +82,7 @@ sessionStorage和localStorage不会自动把数据发送给服务器，尽在本
     cookie          设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭。
 ```
 
-* `iframe`的优点？`iframe`有哪些缺点？
+- `iframe`的优点？`iframe`有哪些缺点？
 
 ```
 优点：
@@ -99,7 +99,7 @@ sessionStorage和localStorage不会自动把数据发送给服务器，尽在本
 通过js动态给iframe添加src属性，可以绕开这些问题
 ```
 
-* 如何实现浏览器内多个标签页之间的通信？
+- 如何实现浏览器内多个标签页之间的通信？
 
 ```js
 1.localStorage: localStorage在被添加、修改、删除时都会触发一个storage事件
@@ -107,19 +107,19 @@ sessionStorage和localStorage不会自动把数据发送给服务器，尽在本
 <input id="name">
 <input type="button" id="btn" value="提交">
 <script type="text/javascript">
-$(function(){  
-    $("#btn").click(function(){  
-        var name=$("#name").val();  
-        localStorage.setItem("name", name); 
-    });  
-});  
+$(function(){
+    $("#btn").click(function(){
+        var name=$("#name").val();
+        localStorage.setItem("name", name);
+    });
+});
 </script>
 **second.html**
 <script type="text/javascript">
-$(function(){ 
-    window.addEventListener("storage", function(event){  
-        console.log(event.key + "=" + event.newValue);  
-    });   
+$(function(){
+    window.addEventListener("storage", function(event){
+        console.log(event.key + "=" + event.newValue);
+    });
 });
 </script>
 
@@ -128,47 +128,47 @@ $(function(){
 <input id="name">
 <input type="button" id="btn" value="提交">
 <script type="text/javascript">
-$(function(){  
-    $("#btn").click(function(){  
-        var name=$("#name").val();  
-        document.cookie="name="+name;  
-    });  
-});  
+$(function(){
+    $("#btn").click(function(){
+        var name=$("#name").val();
+        document.cookie="name="+name;
+    });
+});
 </script>
 **second.html**
 <script type="text/javascript">
-$(function(){ 
-    function getCookie(key) {  
-        return JSON.parse("{\"" + document.cookie.replace(/;\s+/gim,"\",\"").replace(/=/gim, "\":\"") + "\"}")[key];  
-    }   
-    setInterval(function(){  
-        console.log("name=" + getCookie("name"));  
-    }, 10000);  
+$(function(){
+    function getCookie(key) {
+        return JSON.parse("{\"" + document.cookie.replace(/;\s+/gim,"\",\"").replace(/=/gim, "\":\"") + "\"}")[key];
+    }
+    setInterval(function(){
+        console.log("name=" + getCookie("name"));
+    }, 10000);
 });
 </script>
 ```
 
-* 页面可见性（`Page Visibility API`）可以有哪些用途？
+- 页面可见性（`Page Visibility API`）可以有哪些用途？
 
 ```
 通过visibilityState的值检测页面当前是否可见，以及网页的打开时间等。
 在页面被切换到其他后台进程时，自动暂停音乐或视频的播放。
 ```
 
-* 实现不使用border画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。
+- 实现不使用 border 画出 1px 高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。
 
 ```html
-  <div style="height:1px;overflow:hidden;background:red"></div>
+<div style="height:1px;overflow:hidden;background:red"></div>
 ```
 
-* 网页验证码是干嘛的，是为了解决什么安全问题？
+- 网页验证码是干嘛的，是为了解决什么安全问题？
 
 ```
 区分用户是计算机还是人的公共全自动程序。可以防止恶意破解密码、刷票、论坛灌水。
 有效防止黑客对某一个特定注册用户用特定程序暴力破解方式进行不断的登录尝试。
 ```
 
-* `title`与`h1`的区别、`b`与`strong`的区别、`i`与`em`的区别？
+- `title`与`h1`的区别、`b`与`strong`的区别、`i`与`em`的区别？
 
 ```
 title属性没有明确意义，只是表示标题，h1则表示层次明确的标题，对页面信息的抓取也有很大影响。
@@ -178,7 +178,7 @@ strong是标明重点内容，有语气加强的含义，使用阅读设备阅�
 i内容展示为斜体，em表示强调的文本。
 ```
 
-* meta元素可以定义文档的哪些元数据？
+- meta 元素可以定义文档的哪些元数据？
 
 ```
 meta元素可定义的元数据简要概括为4类：
@@ -188,44 +188,71 @@ meta元素可定义的元数据简要概括为4类：
 4.指定首选样式表、执行重载或重定向
 ```
 
-* `meta viewport` 相关属性
+- `meta viewport` 相关属性
 
 ```html
-<!DOCTYPE html>  <!--H5标准声明，使用 HTML5 doctype，不区分大小写-->
-<head lang=”en”> <!--标准的 lang 属性写法-->
-<meta charset=’utf-8′>    <!--声明文档使用的字符编码-->
-<meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″/>   <!--优先使用 IE 最新版本和 Chrome-->
-<meta name=”description” content=”不超过150个字符”/>       <!--页面描述-->
-<meta name=”keywords” content=””/>     <!-- 页面关键词-->
-<meta name=”author” content=”name, email@gmail.com”/>    <!--网页作者-->
-<meta name=”robots” content=”index,follow”/>      <!--搜索引擎抓取-->
-<meta name=”viewport” content=”initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no”> <!--为移动设备添加 viewport-->
-<meta name=”apple-mobile-web-app-title” content=”标题”> <!--iOS 设备 begin-->
-<meta name=”apple-mobile-web-app-capable” content=”yes”/>  <!--添加到主屏后的标题（iOS 6 新增）
+<!DOCTYPE html>
+<!--H5标准声明，使用 HTML5 doctype，不区分大小写-->
+<head lang="”en”">
+  <!--标准的 lang 属性写法-->
+  <meta charset="’utf-8′" />
+  <!--声明文档使用的字符编码-->
+  <meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″/>
+  <!--优先使用 IE 最新版本和 Chrome-->
+  <meta name="”description”" content="”不超过150个字符”" />
+  <!--页面描述-->
+  <meta name="”keywords”" content="””" />
+  <!-- 页面关键词-->
+  <meta name="”author”" content="”name," email@gmail.com” />
+  <!--网页作者-->
+  <meta name="”robots”" content="”index,follow”" />
+  <!--搜索引擎抓取-->
+  <meta name=”viewport” content=”initial-scale=1, maximum-scale=3,
+  minimum-scale=1, user-scalable=no”>
+  <!--为移动设备添加 viewport-->
+  <meta name="”apple-mobile-web-app-title”" content="”标题”" />
+  <!--iOS 设备 begin-->
+  <meta name="”apple-mobile-web-app-capable”" content="”yes”" />
+  <!--添加到主屏后的标题（iOS 6 新增）
 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏-->
-<meta name=”apple-itunes-app” content=”app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL”>
-<!--添加智能 App 广告条 Smart App Banner（iOS 6+ Safari）-->
-<meta name=”apple-mobile-web-app-status-bar-style” content=”black”/>
-<meta name=”format-detection” content=”telphone=no, email=no”/>  <!--设置苹果工具栏颜色-->
-<meta name=”renderer” content=”webkit”> <!-- 启用360浏览器的极速模式(webkit)-->
-<meta http-equiv=”X-UA-Compatible” content=”IE=edge”>     <!--避免IE使用兼容模式-->
-<meta http-equiv=”Cache-Control” content=”no-siteapp” />    <!--不让百度转码-->
-<meta name=”HandheldFriendly” content=”true”>     <!--针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓-->
-<meta name=”MobileOptimized” content=”320″>   <!--微软的老式浏览器-->
-<meta name=”screen-orientation” content=”portrait”>   <!--uc强制竖屏-->
-<meta name=”x5-orientation” content=”portrait”>    <!--QQ强制竖屏-->
-<meta name=”full-screen” content=”yes”>              <!--UC强制全屏-->
-<meta name=”x5-fullscreen” content=”true”>       <!--QQ强制全屏-->
-<meta name=”browsermode” content=”application”>   <!--UC应用模式-->
-<meta name=”x5-page-mode” content=”app”>   <!-- QQ应用模式-->
-<meta name=”msapplication-tap-highlight” content=”no”>    <!--windows phone 点击无高光
+  <meta name=”apple-itunes-app” content=”app-id=myAppStoreID,
+  affiliate-data=myAffiliateData, app-argument=myURL”>
+  <!--添加智能 App 广告条 Smart App Banner（iOS 6+ Safari）-->
+  <meta name="”apple-mobile-web-app-status-bar-style”" content="”black”" />
+  <meta name=”format-detection” content=”telphone=no, email=no”/>
+  <!--设置苹果工具栏颜色-->
+  <meta name="”renderer”" content="”webkit”" />
+  <!-- 启用360浏览器的极速模式(webkit)-->
+  <meta http-equiv=”X-UA-Compatible” content=”IE=edge”>
+  <!--避免IE使用兼容模式-->
+  <meta http-equiv="”Cache-Control”" content="”no-siteapp”" />
+  <!--不让百度转码-->
+  <meta name="”HandheldFriendly”" content="”true”" />
+  <!--针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓-->
+  <meta name="”MobileOptimized”" content="”320″" />
+  <!--微软的老式浏览器-->
+  <meta name="”screen-orientation”" content="”portrait”" />
+  <!--uc强制竖屏-->
+  <meta name="”x5-orientation”" content="”portrait”" />
+  <!--QQ强制竖屏-->
+  <meta name="”full-screen”" content="”yes”" />
+  <!--UC强制全屏-->
+  <meta name="”x5-fullscreen”" content="”true”" />
+  <!--QQ强制全屏-->
+  <meta name="”browsermode”" content="”application”" />
+  <!--UC应用模式-->
+  <meta name="”x5-page-mode”" content="”app”" />
+  <!-- QQ应用模式-->
+  <meta name="”msapplication-tap-highlight”" content="”no”" />
+  <!--windows phone 点击无高光
 设置页面不缓存-->
-<meta http-equiv=”pragma” content=”no-cache”>
-<meta http-equiv=”cache-control” content=”no-cache”>
-<meta http-equiv=”expires” content=”0″>
+  <meta http-equiv="”pragma”" content="”no-cache”" />
+  <meta http-equiv="”cache-control”" content="”no-cache”" />
+  <meta http-equiv="”expires”" content="”0″" />
+</head>
 ```
 
-* 简述一下 `src` 与 `href` 的区别
+- 简述一下 `src` 与 `href` 的区别
 
 ```
 src 用于替换当前元素，href 用于在当前文档和引用资源之间确立联系。

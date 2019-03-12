@@ -1,12 +1,12 @@
-# 14道JavaScript题
+# 14 道 JavaScript 题
 
-这14道`JavaScript`题来自[http://perfectionkills.com/javascript-quiz/](http://perfectionkills.com/javascript-quiz/)
+这 14 道`JavaScript`题来自[http://perfectionkills.com/javascript-quiz/](http://perfectionkills.com/javascript-quiz/)
 
 1.
 
 ```js
-(function(){
-    return typeof arguments;
+(function() {
+  return typeof arguments;
 })();
 ```
 
@@ -17,7 +17,9 @@
 2.
 
 ```js
-var f = function g(){ return 23; };
+var f = function g() {
+  return 23;
+};
 typeof g();
 ```
 
@@ -25,17 +27,17 @@ typeof g();
 
 解析：在`JS`中，函数声明有两种：
 
-* 函数声明：`function fn() {...}; `
-* 函数表达式：`var fn = function() {...}; `
+- 函数声明：`function fn() {...};`
+- 函数表达式：`var fn = function() {...};`
 
-类似`var foo = function bar() {...}`同一按函数表达式处理，函数外部无法通过bar访问函数。
+类似`var foo = function bar() {...}`同一按函数表达式处理，函数外部无法通过 bar 访问函数。
 
 3.
 
 ```js
-(function(x){
-    delete x;
-    return x;
+(function(x) {
+  delete x;
+  return x;
 })(1);
 ```
 
@@ -46,34 +48,39 @@ typeof g();
 4.
 
 ```js
-var y = 1, x = y = typeof x;
+var y = 1,
+  x = (y = typeof x);
 x;
 ```
 
 答案：`"undefined"`
 
-解析：先定义`y`并赋值为1，然后将`typeof x` 赋值给`y`，此时`y`为`"undefined"`，最后将`y`赋值给`x`。
+解析：先定义`y`并赋值为 1，然后将`typeof x` 赋值给`y`，此时`y`为`"undefined"`，最后将`y`赋值给`x`。
 
 5.
 
 ```js
-(function f(f){
-    return typeof f();
-})(function(){ return 1; });
+(function f(f) {
+  return typeof f();
+})(function() {
+  return 1;
+});
 ```
 
 答案：`"number"`
 
-解析：函数里的`f()`是参数f的执行结果，也就是`typeof 1`，最终结果返回`"number"`。
+解析：函数里的`f()`是参数 f 的执行结果，也就是`typeof 1`，最终结果返回`"number"`。
 
 6.
 
 ```js
 var foo = {
-      bar: function() { return this.baz; },
-      baz: 1
-    };
-(function(){
+  bar: function() {
+    return this.baz;
+  },
+  baz: 1
+};
+(function() {
   return typeof arguments[0]();
 })(foo.bar);
 ```
@@ -88,9 +95,11 @@ var foo = {
 
 ```js
 var foo = {
-  bar: function(){ return this.baz; },
+  bar: function() {
+    return this.baz;
+  },
   baz: 1
-}
+};
 typeof (f = foo.bar)();
 ```
 
@@ -101,7 +110,12 @@ typeof (f = foo.bar)();
 8.
 
 ```js
-var f = (function f(){ return "1"; }, function g(){ return 2; })();
+var f = (function f() {
+  return '1';
+},
+function g() {
+  return 2;
+})();
 typeof f;
 ```
 
@@ -113,8 +127,8 @@ typeof f;
 
 ```js
 var x = 1;
-if (function f(){}) {
-    x += typeof f;
+if (function f() {}) {
+  x += typeof f;
 }
 x;
 ```
@@ -137,8 +151,8 @@ typeof typeof x;
 11.
 
 ```js
-(function(foo){
-    return typeof foo.bar;
+(function(foo) {
+  return typeof foo.bar;
 })({ foo: { bar: 1 } });
 ```
 
@@ -149,10 +163,14 @@ typeof typeof x;
 12.
 
 ```js
-(function f(){
-    function f(){ return 1; }
-    return f();
-    function f(){ return 2; }
+(function f() {
+  function f() {
+    return 1;
+  }
+  return f();
+  function f() {
+    return 2;
+  }
 })();
 ```
 
@@ -163,7 +181,9 @@ typeof typeof x;
 13.
 
 ```js
-function f(){ return f; }
+function f() {
+  return f;
+}
 new f() instanceof f;
 ```
 
@@ -176,10 +196,9 @@ new f() instanceof f;
 14.
 
 ```js
-with (function(x, undefined){}) length;
+with (function(x, undefined) {}) length;
 ```
 
 答案：2
 
-解析：`with`限定作用域是这个函数，`function.length`返回函数的参数个数，所以是2。
-
+解析：`with`限定作用域是这个函数，`function.length`返回函数的参数个数，所以是 2。

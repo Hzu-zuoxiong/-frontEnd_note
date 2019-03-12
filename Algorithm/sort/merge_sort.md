@@ -14,41 +14,39 @@
 - 最差情况：`T(n) = O(nlogn)`
 - 平均情况：`T(n) = O(nlogn)`
 
-
 ### 代码实现
 
 ```js
 function mergeSort(arr) {
-    var len = arr.length;
-    if(len < 2) {
-        return arr;
-    }
-    var middle = Math.floor(len / 2),
-        left = arr.slice(0, middle),
-        right = arr.slice(middle);
-    return merge(mergeSort(left), mergeSort(right));
+  var len = arr.length;
+  if (len < 2) {
+    return arr;
+  }
+  var middle = Math.floor(len / 2),
+    left = arr.slice(0, middle),
+    right = arr.slice(middle);
+  return merge(mergeSort(left), mergeSort(right));
 }
 
-function merge(left, right)
-{
-    var result = [];
-    while (left.length && right.length) {
-        if (left[0] <= right[0]) {
-            result.push(left.shift());
-        } else {
-            result.push(right.shift());
-        }
+function merge(left, right) {
+  var result = [];
+  while (left.length && right.length) {
+    if (left[0] <= right[0]) {
+      result.push(left.shift());
+    } else {
+      result.push(right.shift());
     }
-    while (left.length)
-        result.push(left.shift());
-    while (right.length)
-        result.push(right.shift());
-    return result;
+  }
+  while (left.length) result.push(left.shift());
+  while (right.length) result.push(right.shift());
+  return result;
 }
-var arr=[3,44,38,5,47,15,36,26,27,2,46,4,19,50,48];
-console.log(mergeSort(arr));  // [2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 48, 50]
+var arr = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48];
+console.log(mergeSort(arr)); // [2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 48, 50]
 ```
 
 ## 动图演示
 
 ![](/assets/Algorithm/sort/merge_sort)
+
+> 参考连接：[十大经典排序算法总结](https://juejin.im/post/57dcd394a22b9d00610c5ec8#heading-34)

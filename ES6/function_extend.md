@@ -17,9 +17,9 @@ function log(x, y = 'World') {
 }
 ```
 
-* 参数变量是默认声明的，不能用`let`或`const`再次声明。
-* 使用参数默认值时，函数不能有同名参数。
-* 传入`undefined`，将触发参数等于默认值，`null`则没有这个效果。
+- 参数变量是默认声明的，不能用`let`或`const`再次声明。
+- 使用参数默认值时，函数不能有同名参数。
+- 传入`undefined`，将触发参数等于默认值，`null`则没有这个效果。
 
 ```js
 function foo(x = 5) {
@@ -42,7 +42,7 @@ function foo(x = 5, y = 6) {
   console.log(x, y);
 }
 
-foo(undefined, null)
+foo(undefined, null);
 // 5 null
 ```
 
@@ -62,7 +62,7 @@ function f(x, y = x) {
   console.log(y);
 }
 
-f(2) // 2
+f(2); // 2
 
 // 函数调用时，函数体内的局部变量z影响不到默认值变量z
 // 此时外层若变量z不存在，则会报错
@@ -71,7 +71,7 @@ function f(y = z) {
   console.log(y);
 }
 
-f() // ReferenceError: z is not defined
+f(); // ReferenceError: z is not defined
 
 // 参数b=b形成单独作用域。实际执行let b=b
 // 由于暂时性死区，代码报'b为定义'错误
@@ -80,7 +80,7 @@ function foo(b = b) {
   // ...
 }
 
-foo() // ReferenceError: b is not defined
+foo(); // ReferenceError: b is not defined
 ```
 
 ## `rest`参数
@@ -97,7 +97,7 @@ function sortNumbers() {
 const sortNumbers = (...numbers) => numbers.sort();
 ```
 
-**注：**`rest`**参数之后不能再有其他参数，否则会报错**。函数的`length`属性也不包括rest参数。
+**注：**`rest`**参数之后不能再有其他参数，否则会报错**。函数的`length`属性也不包括 rest 参数。
 
 ```js
 // 报错
@@ -122,19 +122,26 @@ function f(a, ...b, c) {
 如果将一个匿名函数赋值给一个变量，`ES5`的`name`属性会返回空字符串，而`ES6`的`name`属性会返回实际的函数名。`Function`构造函数返回的函数实例，`name`属性的值为`anonymous`。`bind`返回的函数，`name`属性值会加上`bound`前缀。
 
 ```js
-var f = function () {};
+var f = function() {};
 // ES5
-f.name // ""
+f.name; // ""
 
 // ES6
-f.name // "f"
+f.name(
+  // "f"
 
-(new Function).name // "anonymous"
+  new Function()
+).name; // "anonymous"
 
-function foo() {};
-foo.bind({}).name // "bound foo"
+function foo() {}
+foo
+  .bind({})
+  .name(
+    // "bound foo"
 
-(function(){}).bind({}).name // "bound "
+    function() {}
+  )
+  .bind({}).name; // "bound "
 ```
 
 ## 箭头函数
@@ -191,7 +198,7 @@ function foo() {
 function foo() {
   var _this = this;
 
-  setTimeout(function () {
+  setTimeout(function() {
     console.log('id:', _this.id);
   }, 100);
 }
@@ -208,11 +215,11 @@ function foo() {
   };
 }
 
-var f = foo.call({id: 1});
+var f = foo.call({ id: 1 });
 
-var t1 = f.call({id: 2})()(); // id: 1
-var t2 = f().call({id: 3})(); // id: 1
-var t3 = f()().call({id: 4}); // id: 1
+var t1 = f.call({ id: 2 })()(); // id: 1
+var t2 = f().call({ id: 3 })(); // id: 1
+var t3 = f()().call({ id: 4 }); // id: 1
 ```
 
 除了`this`，以下三个变量在箭头函数之中也是不存在的，它们指向外层函数对应的变量：`arguments`、`super`、`new.target`。
@@ -224,13 +231,13 @@ function foo() {
   }, 100);
 }
 
-foo(2, 4, 6, 8)
+foo(2, 4, 6, 8);
 // args: [2, 4, 6, 8]
 ```
 
 ## 双冒号运算符
 
-由于箭头函数没有自己的`this`，所以当然不能用`call()`、`apply()`、`bind()`等方法改变this的指向。
+由于箭头函数没有自己的`this`，所以当然不能用`call()`、`apply()`、`bind()`等方法改变 this 的指向。
 
 函数绑定运算符是并排的两个冒号（`::`），双冒号左边是一个对象，右边是一个函数。该运算符会自动将左边的对象，作为上下文环境（即`this`对象），绑定到右边的函数上面。若双冒号的左边为空，右边是一个对象的方法，则等于将该方法绑定在该对象上。若双冒号运算符的运算结果，还是一个对象，就可以采用链式写法。
 
@@ -248,9 +255,9 @@ var method = obj::obj.foo;
 var method = ::obj.foo;
 
 getPlayers()
-::map(x => x.character())
-::takeWhile(x => x.strength > 100)
-::forEach(x => console.log(x));
+  ::map(x => x.character())
+  ::takeWhile(x => x.strength > 100)
+  ::forEach(x => console.log(x));
 ```
 
 ## 尾调用优化
@@ -261,11 +268,11 @@ getPlayers()
 
 ```js
 // 不属于尾调用
-function f(x){
+function f(x) {
   g(x);
 }
 // 等同于
-function f(x){
+function f(x) {
   g(x);
   return undefined;
 }
@@ -273,7 +280,7 @@ function f(x){
 // 尾调用
 function f(x) {
   if (x > 0) {
-    return m(x)
+    return m(x);
   }
   return n(x);
 }
@@ -300,7 +307,7 @@ function factorial(n) {
   return n * factorial(n - 1);
 }
 
-factorial(5) // 120
+factorial(5); // 120
 
 // 改写成尾递归，只保留一个调用记录，复杂度O（1）
 function factorial(n, total) {
@@ -308,8 +315,7 @@ function factorial(n, total) {
   return factorial(n - 1, n * total);
 }
 
-factorial(5, 1) // 120
+factorial(5, 1); // 120
 ```
 
-ES6的尾调用优化只在严格模式下开启，正常模式是无效的。因为正常模式下，函数内部有两个变量可以跟踪函数的调用栈：`func.arguments`、`func.caller`。严格模式禁用这两个变量，所以尾调用模式仅在严格模式下生效。
-
+ES6 的尾调用优化只在严格模式下开启，正常模式是无效的。因为正常模式下，函数内部有两个变量可以跟踪函数的调用栈：`func.arguments`、`func.caller`。严格模式禁用这两个变量，所以尾调用模式仅在严格模式下生效。

@@ -1,4 +1,4 @@
-# JS继承
+# JS 继承
 
 ## 一、构造继承
 
@@ -7,15 +7,15 @@
 ```js
 // 子类
 function Sub() {
-    Super.call(this);
-    this.property = 'Sub Property'
+  Super.call(this);
+  this.property = 'Sub Property';
 }
 ```
 
 **优缺点：**
 
-* 简单明了，直接继承超类构造函数的属性和方法
-* 无法继承原型链上的属性和方法
+- 简单明了，直接继承超类构造函数的属性和方法
+- 无法继承原型链上的属性和方法
 
 ## 二、原型链继承
 
@@ -24,7 +24,7 @@ function Sub() {
 ```js
 // 子类
 function Sub() {
-    this.prototype = 'Sub Property';
+  this.prototype = 'Sub Property';
 }
 Sub.prototype = new Super();
 // 注：这里new Super()生成的超类对象并没有constructor属性，故需添加上
@@ -33,10 +33,10 @@ Sub.prototype.constructor = Sub;
 
 **优缺点：**
 
-* 实例是子类的实例，实际上也是父类的实例
-* 父类新增原型方法和属性，子类都能访问到
-* 所有子类的实例的原型都共享同一个超类实例的属性和方法
-* 无法实现多继承
+- 实例是子类的实例，实际上也是父类的实例
+- 父类新增原型方法和属性，子类都能访问到
+- 所有子类的实例的原型都共享同一个超类实例的属性和方法
+- 无法实现多继承
 
 ## 三、组合继承
 
@@ -45,8 +45,8 @@ Sub.prototype.constructor = Sub;
 ```js
 // 子类
 function Sub() {
-    Super.call(this);
-    this.property = 'Sub Property'
+  Super.call(this);
+  this.property = 'Sub Property';
 }
 Sub.prototype = new Super();
 // 注：这里new Super()生成的超类对象并没有constructor属性，故需添加上
@@ -55,8 +55,8 @@ Sub.prototype.constructor = Sub;
 
 **优缺点：**
 
-* 解决了构造继承和原型链继承的两个问题
-* 实际上子类会拥有超类的两份属性，只是子类的属性覆盖了超类的属性
+- 解决了构造继承和原型链继承的两个问题
+- 实际上子类会拥有超类的两份属性，只是子类的属性覆盖了超类的属性
 
 ## 四、原型式继承
 
@@ -64,16 +64,16 @@ Sub.prototype.constructor = Sub;
 
 ```js
 function objectCreate(obj) {
-    function F() {}
-    F.prototype = obj;
-    return new F();
+  function F() {}
+  F.prototype = obj;
+  return new F();
 }
 ```
 
 **优缺点：**
 
-* 直接通过对象生成一个继承该对象的对象
-* 不是类式继承，而是原型式基础，缺少类的概念
+- 直接通过对象生成一个继承该对象的对象
+- 不是类式继承，而是原型式基础，缺少类的概念
 
 ## 五、寄生式继承
 
@@ -81,22 +81,22 @@ function objectCreate(obj) {
 
 ```js
 function objectCreate(obj) {
-    function F() {}
-    F.prototype = obj;
-    return new F();
+  function F() {}
+  F.prototype = obj;
+  return new F();
 }
 
 function createSubObj(superInstance) {
-    var clone = objectCreate(superInstance);
-    clone.property = 'Sub Property';
-    return clone;
+  var clone = objectCreate(superInstance);
+  clone.property = 'Sub Property';
+  return clone;
 }
 ```
 
 **优缺点：**
 
-* 原型式继承的一种拓展
-* 依旧没有类的概念
+- 原型式继承的一种拓展
+- 依旧没有类的概念
 
 ## 六、寄生组合式继承
 
@@ -104,22 +104,19 @@ function createSubObj(superInstance) {
 
 ```js
 function inheritPrototype(Super, Sub) {
-    var superProtoClone = Object.create(Super.prototype);
-    superProtoClone.constructor = Sub;
-    Sub.prototype = Super;
+  var superProtoClone = Object.create(Super.prototype);
+  superProtoClone.constructor = Sub;
+  Sub.prototype = Super;
 }
 
 function Sub() {
-    Super.call();
-    Sub.property = 'Sub Property'
+  Super.call();
+  Sub.property = 'Sub Property';
 }
 inheritPrototype(Super, Sub);
 ```
 
 **优缺点：**
 
-* 完美实现继承，解决了组合式继承带两份属性的问题
-* 过于繁琐，故不如组合继承
-
-
-
+- 完美实现继承，解决了组合式继承带两份属性的问题
+- 过于繁琐，故不如组合继承

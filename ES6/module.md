@@ -2,7 +2,7 @@
 
 ## 简介
 
-在ES6之前，社区制定了一些模块加载方案，最要有`CommonJS`和`AMD`两种。前者用于服务器，后者用于浏览器。ES6实现了模块功能，而且实现得相当简单。ES6模块的设计思想是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。`CommonJS`和`AMD`模块，都只能在允许时确定这些东西。
+在 ES6 之前，社区制定了一些模块加载方案，最要有`CommonJS`和`AMD`两种。前者用于服务器，后者用于浏览器。ES6 实现了模块功能，而且实现得相当简单。ES6 模块的设计思想是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。`CommonJS`和`AMD`模块，都只能在允许时确定这些东西。
 
 ```js
 // CommonJS模块
@@ -15,38 +15,38 @@ let exists = _fs.exists;
 let readfile = _fs.readfile;
 ```
 
-上面代码实质是加载整个`fs`模块，生成`_fs`对象，再从这个对象读取3个方法。这种加载称为”**运行时加载**“，只有允许时才能得到这个对象，所以完全没办法在编译时做”静态优化“。
+上面代码实质是加载整个`fs`模块，生成`_fs`对象，再从这个对象读取 3 个方法。这种加载称为”**运行时加载**“，只有允许时才能得到这个对象，所以完全没办法在编译时做”静态优化“。
 
 ```js
 // ES6模块
 import { stat, exists, readFile } from 'fs';
 ```
 
-上面代码实质是从`fs`模块加载3个方法，其他方法不加载。这种加载称为”**编译时加载**“或者**静态加载**，即ES6可以在编译时就完成模块加载，效率比`CommonJS`高。ES6模块是编译时加载，使得静态分析称为可能。**ES6模块之中，顶层的**`this`**指向**`undefined`。
+上面代码实质是从`fs`模块加载 3 个方法，其他方法不加载。这种加载称为”**编译时加载**“或者**静态加载**，即 ES6 可以在编译时就完成模块加载，效率比`CommonJS`高。ES6 模块是编译时加载，使得静态分析称为可能。**ES6 模块之中，顶层的**`this`**指向**`undefined`。
 
 ## 严格模式
 
-ES6模块**自动采用严格模式**，不管有没有在模块头部加上`"use strict";`。
+ES6 模块**自动采用严格模式**，不管有没有在模块头部加上`"use strict";`。
 
 严格模式有以下限制：
 
-* 变量必须声明后再使用
-* 函数的参数不能有同名属性
-* 不能使用`with`语句
-* 不能对只读属性赋值
-* 不能使用前缀0表示八进制数
-* 不能删除不可删除的属性
-* 不能删除变量`delete prop`，只能删除属性`delete global[prop]`
-* `eval`不会在它的外层作用域引入变量
-* `eval`和`arguments`不能被重新赋值
-* `arguments`不会自动反映函数参数的变化
-* 不能使用`arguments.callee`
-* 不能使用`arguments.caller`
-* 禁止`this`指向全局对象
-* 不能使用`fn.caller`和`fn.arguments`获取函数调用的堆栈
-* 增加了保留字（比如`protected`、`static`和`interface`）
+- 变量必须声明后再使用
+- 函数的参数不能有同名属性
+- 不能使用`with`语句
+- 不能对只读属性赋值
+- 不能使用前缀 0 表示八进制数
+- 不能删除不可删除的属性
+- 不能删除变量`delete prop`，只能删除属性`delete global[prop]`
+- `eval`不会在它的外层作用域引入变量
+- `eval`和`arguments`不能被重新赋值
+- `arguments`不会自动反映函数参数的变化
+- 不能使用`arguments.callee`
+- 不能使用`arguments.caller`
+- 禁止`this`指向全局对象
+- 不能使用`fn.caller`和`fn.arguments`获取函数调用的堆栈
+- 增加了保留字（比如`protected`、`static`和`interface`）
 
-## export命令
+## export 命令
 
 `export`命令用于规定模块的对外接口，`import`命令用于输入其他模块提供的功能。
 
@@ -112,12 +112,12 @@ export {n as m};
 
 ```js
 function foo() {
-  export default 'bar' // SyntaxError
+  export default 'bar'; // SyntaxError
 }
-foo()
+foo();
 ```
 
-## import命令
+## import 命令
 
 `import`命令用于加载其他文件，并从中输入变量。如果**多次重复执行一句**`import`**语句，那么只会执行一次**，而不会多次执行。`import`命令接受一对大括号，里面指定要从其他模块导入的变量名。**大括号里面的变量名，必须与被导入模块对外接口的名称相同**。`import`后面的`from`指定模块文件的位置，可以是相对路径，也可以是绝对路径，`.js`后缀可以省略。如果只是模块名，不带有路径，则需要配置文件，告诉`JavaScript`引擎该模块的位置。若想为输入的变量重新取一个名字，需要使用`as`关键字。`import`命令输入的变量都是只读的，因为它的本质是输入接口。也就是**不允许在加载模块的脚本里面改写接口**。
 
@@ -133,7 +133,7 @@ import { foo, bar } from 'my_module';
 import { lastName as surname } from './profile.js';
 
 // 不允许在加载模块的脚本里面改写接口
-import {a} from './xxx.js'
+import { a } from './xxx.js';
 a = {}; // Syntax Error : 'a' is read-only;
 ```
 
@@ -193,16 +193,16 @@ import * as circle from './circle';
 
 // 下面两行都是不允许的
 circle.foo = 'hello';
-circle.area = function () {};
+circle.area = function() {};
 ```
 
-## export default命令
+## export default 命令
 
 使用`import`命令，用户必须知道所要加载的变量名或函数名，否则无法加载。而`export default`命令可以为模块指定默认输出。其他模块加载该模块时，可以为该匿名函数指定任意名字。这时，`import`命令后面不使用大括号。
 
 ```js
 // export-default.js
-export default function () {
+export default function() {
   console.log('foo');
 }
 
@@ -276,16 +276,16 @@ export { default } from 'foo';
 以下三种`import`语句，没有对应的复合写法。
 
 ```js
-import * as someIdentifier from "someModule";
-import someIdentifier from "someModule";
-import someIdentifier, { namedIdentifier } from "someModule";
+import * as someIdentifier from 'someModule';
+import someIdentifier from 'someModule';
+import someIdentifier, { namedIdentifier } from 'someModule';
 ```
 
-**注：`export *`命令会忽略模块的default方法。**
+**注：`export *`命令会忽略模块的 default 方法。**
 
 ## import\(\)
 
-`import`命令会被JavaScript引擎静态分析，先于模块内的其他语句执行。`import`和`export`命令只能在模块的顶层，不能在代码之中。如此，条件加载就不可能实现。
+`import`命令会被 JavaScript 引擎静态分析，先于模块内的其他语句执行。`import`和`export`命令只能在模块的顶层，不能在代码之中。如此，条件加载就不可能实现。
 
 引入`import()`函数，完成动态加载。`import()`返回一个`Promise`对象。`import()`函数可以用在任何地方，不仅是模块，非模块的脚本也可以使用。它是运行时执行，也就是什么时候运行到这一句，就会加载指定的模块。`import()`函数与所加载的模块没有静态连接关系，这点与`import`语句不相同。`import()`类似 Node 的`require`方法，主要区别是前者异步加载，后者同步加载。
 
@@ -362,6 +362,3 @@ async function main() {
 }
 main();
 ```
-
-
-

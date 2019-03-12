@@ -1,6 +1,6 @@
-# CSS考点
+# CSS 考点
 
-* 页面导入样式时，使用`link`和`@import`有什么区别？
+- 页面导入样式时，使用`link`和`@import`有什么区别？
 
 ```
 1.link属于XHTML标签，除了加载CSS外，还能用于定义RSS，定义rel连接属性等作用；而@import是CSS提供的，只能用于加载CSS。
@@ -9,7 +9,7 @@
 4.link支持使用JS控制DOM去改变样式，而@import不支持。
 ```
 
-* CSS3有哪些新特性？
+- CSS3 有哪些新特性？
 
 ```
 1.CSS3实现圆角(border-radius)，阴影(box-shadow)
@@ -21,7 +21,7 @@
 7.border-image
 ```
 
-* 介绍一下标准的`CSS`的盒子模型？低版本的IE盒子模型有什么不同？
+- 介绍一下标准的`CSS`的盒子模型？低版本的 IE 盒子模型有什么不同？
 
 ```
 两种模型：IE盒子模型、标准盒子模型
@@ -29,7 +29,7 @@
 IE盒子模型：宽高为content+padding+border
 ```
 
-* `CSS`选择符有哪些？哪些属性可以继承？优先级算法如何计算？CSS3新增伪类有哪些？
+- `CSS`选择符有哪些？哪些属性可以继承？优先级算法如何计算？CSS3 新增伪类有哪些？
 
 ```
 * 1.id选择器（#id）
@@ -93,48 +93,44 @@ p:nth-child(2)  选择属于其父元素的第二个子元素的每个 <p> 元�
 :checked        单选框或复选框被选中。
 ```
 
-* 如何居中`div`？
-  * 水平居中：给`div`设置一个宽度，然后添加`margin: 0 auto;`属性
-  * 绝对定位的`div`居中
+- 如何居中`div`？
+  - 水平居中：给`div`设置一个宽度，然后添加`margin: 0 auto;`属性
+  - 绝对定位的`div`居中
 
 ```css
-水平垂直居中：
-** 设置外边距 **
-div {
-    position: relative;        /* 相对定位或绝对定位均可 */
-    width:500px;
-    height:300px;
-    top: 50%;
-    left: 50%;
-    margin: -150px 0 0 -250px;         /* 外边距为自身宽高的一半 */
-    background-color: red;         /* 方便看效果 */
+水平垂直居中： ** 设置外边距 ** div {
+  position: relative; /* 相对定位或绝对定位均可 */
+  width: 500px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  margin: -150px 0 0 -250px; /* 外边距为自身宽高的一半 */
+  background-color: red; /* 方便看效果 */
 }
 
-** 利用transform属性 **
-div {
-     position: absolute;        /* 相对定位或绝对定位均可 */
-     width:500px;
-     height:300px;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     background-color: red;         /* 方便看效果 */
+** 利用transform属性 ** div {
+  position: absolute; /* 相对定位或绝对定位均可 */
+  width: 500px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: red; /* 方便看效果 */
 }
 
- ** 使用flex布局 **
-.container {
-    display: flex;
-    align-items: center;         /* 垂直居中 */
-    justify-content: center;            /* 水平居中 */
+** 使用flex布局 ** .container {
+  display: flex;
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
 }
 .container div {
-    width: 100px;
-    height: 100px;
-    background-color: pink;        /* 方便看效果 */
+  width: 100px;
+  height: 100px;
+  background-color: pink; /* 方便看效果 */
 }
 ```
 
-* `position`的`absolute`与`fixed`共同点与不同点
+- `position`的`absolute`与`fixed`共同点与不同点
 
 ```
 共同点：
@@ -146,7 +142,7 @@ div {
 absolute的“根元素”是可以设置的，而fixed的“根元素”固定为浏览器窗口
 ```
 
-* 解析下`CSS sprites`，以及你要如何在页面或网站中使用它？
+- 解析下`CSS sprites`，以及你要如何在页面或网站中使用它？
 
 ```
 CSS sprites 就是把网页中一些被背景图片整合到一张图片文件中，再利用CSS的background-image、background-repeat、
@@ -154,7 +150,7 @@ background-position的组合进行背景定位，background-position可以用数
 的开销，因为请求消耗时比较长；请求虽然可以并发，但也有限制，一般浏览器都是6个。
 ```
 
-* `CSS`预处理器有哪些优缺点？
+- `CSS`预处理器有哪些优缺点？
 
 ```
 优点：
@@ -172,7 +168,7 @@ background-position的组合进行背景定位，background-position可以用数
 3.带来一定的学习成本
 ```
 
-* 当出现外边距塌陷时，外边距之间的计算方式是怎样的？
+- 当出现外边距塌陷时，外边距之间的计算方式是怎样的？
 
 ```
 元素的外边距可以用正数或负数指定，使用不同的组合会改变外边距的计算方式：
@@ -181,7 +177,7 @@ background-position的组合进行背景定位，background-position可以用数
 3.一正一负，取两个值相加的和
 ```
 
-* `display: none`与`visibility: hidden`都可隐藏元素，二者有何区别？
+- `display: none`与`visibility: hidden`都可隐藏元素，二者有何区别？
 
 ```
 display:none：将CSS属性display定义为none后，相当于元素没有了后代元素，在正常流中不占用任何空间，元素的真实尺寸将会丢失，还会
@@ -198,7 +194,7 @@ visibility:hidden：将CSS属性visibility定义为hidden后，在正常流中�
 </div>
 ```
 
-* `CSS`中类选择器和`ID`选择器有哪些区别？
+- `CSS`中类选择器和`ID`选择器有哪些区别？
 
 ```
 1.类选择器是以点号(.)开头，ID选择器是以井号(#)开头
@@ -207,7 +203,7 @@ visibility:hidden：将CSS属性visibility定义为hidden后，在正常流中�
 4.ID选择器的权重比类选择器的要高
 ```
 
-* `a`链接有四种状态包括未访问\(`:link`\)、已访问\(`:visited`\)、激活\(`.active`\)和悬停\(`:hover`\)，声明的顺序是怎样的。
+- `a`链接有四种状态包括未访问\(`:link`\)、已访问\(`:visited`\)、激活\(`.active`\)和悬停\(`:hover`\)，声明的顺序是怎样的。
 
 ```
 推荐使用LVHA(love hate)的顺序，这四种状态的特殊性相同，因此影响权重的只有在样式表中所处的位置了。
@@ -217,7 +213,7 @@ visibility:hidden：将CSS属性visibility定义为hidden后，在正常流中�
 3.因此:hover与:active必须在:link与:visited之后，而:active必须在:hover之后，至于:link与:visited它们两的顺序可以互换。
 ```
 
-* 用过`calc()`函数吗？它是什么，有什么作用？
+- 用过`calc()`函数吗？它是什么，有什么作用？
 
 ```
 calc()是CSS的一个函数，只有一个数学表达式参数，此函数可处理加减乘除等数学运算，并且在表达式中可混用不同的单位，代码如下。
@@ -228,15 +224,15 @@ div {
 都是百分数，边框却是像素值。不同单位，很难得出结果，但有了calc()函数，结果就能手到擒来。
 ```
 
-* 执行下面的代码，经过计算后，`p`元素的真实行高为多少？
+- 执行下面的代码，经过计算后，`p`元素的真实行高为多少？
 
 ```css
 div {
-    font-size: 18px;
-    line-height:14px;
+  font-size: 18px;
+  line-height: 14px;
 }
 div p {
-    line-height: 50%;  /* 9px */
+  line-height: 50%; /* 9px */
 }
 
 /*
@@ -245,7 +241,7 @@ div p {
 */
 ```
 
-* `line-height: 1.5`与`line-height: 150%`的区别
+- `line-height: 1.5`与`line-height: 150%`的区别
 
 ```
 区别体现在子元素继承时，如下：
@@ -253,14 +249,14 @@ div p {
 * line-height: 150%; 是计算好了 line-height 值，然后把这个计算值给子元素继承，子元素拿到的就是最终值。此时，子元素设置 font-size 就对其 line-height 无影响。
 ```
 
-* `CSS`中使用`background: transparent`与`opacity: 0`有什么区别？
+- `CSS`中使用`background: transparent`与`opacity: 0`有什么区别？
 
 ```
 在CSS中，transparent关键字相当于rgba(0, 0, 0, 0)，作为background的属性值，仅仅是将元素的背景设为透明，元素中的内容还能显示。
 而opacity会把元素和内容当成一个整体，当定义为0时，两者都会透明。
 ```
 
-* 执行下面代码，虽然给`p`元素设置了`15px`上外边距，但为何失效？
+- 执行下面代码，虽然给`p`元素设置了`15px`上外边距，但为何失效？
 
 ```css
 <style>
@@ -283,7 +279,7 @@ p {
 */
 ```
 
-* 如何用纯`CSS`的方式让超出容器宽度的文本自动替换为省略号？
+- 如何用纯`CSS`的方式让超出容器宽度的文本自动替换为省略号？
 
 ```css
 /*
@@ -291,10 +287,10 @@ p {
 需要满足3个条件，那就是容器要有明确的宽度，强制在一行显示以及隐藏溢出内容。
 */
 p {
-    width: 200px;             /*容器有明确宽度*/
-    white-space: nowrap;      /*强制在一行显示*/
-    overflow: hidden;         /*溢出隐藏*/
-    text-overflow: ellipsis;  /*溢出内容替换为省略号*/
+  width: 200px; /*容器有明确宽度*/
+  white-space: nowrap; /*强制在一行显示*/
+  overflow: hidden; /*溢出隐藏*/
+  text-overflow: ellipsis; /*溢出内容替换为省略号*/
 }
 /*
 text-overflow有三个值：分别是两个关键字（clip和ellipsis）和一个字符串
@@ -304,14 +300,14 @@ text-overflow有三个值：分别是两个关键字（clip和ellipsis）和一�
 */
 ```
 
-* 背景图像可以用`Data URI`描述，那么什么是`Data URI`？
+- 背景图像可以用`Data URI`描述，那么什么是`Data URI`？
 
 ```
 Data URI可以将外部资源（例如图像），经过Base64编码后，嵌入到其他文档中，可减少额外的HTTP请求。
 虽然使用Data URI减少了一次HTTP请求，但它会让嵌入的文档体积膨胀，影响浏览器渲染，并且还会降低Gzip的压缩效率，破坏资源的缓存。
 ```
 
-* 过渡与动画的区别是什么？
+- 过渡与动画的区别是什么？
 
 ```
 过渡与动画有3个方面的不同：
@@ -319,6 +315,3 @@ Data URI可以将外部资源（例如图像），经过Base64编码后，嵌入
 2.动画不需要触发条件，当HTML文档和相关样式载入完成后，就能立即执行
 3.动画的子属性比过渡多，可以控制动画的循环次数、播放方向以及动画状态
 ```
-
-
-

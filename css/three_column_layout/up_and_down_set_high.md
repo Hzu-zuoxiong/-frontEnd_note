@@ -1,9 +1,9 @@
 # 上下高度固定，中间自适应
 
-题目：写出三栏布局，其中顶部、底部高度各为300px，中间自适应。
+题目：写出三栏布局，其中顶部、底部高度各为 300px，中间自适应。
 
-* 定位布局
-* flex布局
+- 定位布局
+- flex 布局
 
 **补充：**
 
@@ -11,8 +11,8 @@
 
 ```css
 body {
-    -webkit-overflow-scrolling: touch;
-    overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
 }
 ```
 
@@ -59,7 +59,7 @@ body {
 </section>
 ```
 
-## flex布局：
+## flex 布局：
 
 ```css
 <section class="layout">
@@ -106,4 +106,3 @@ body {
 ```
 
 ## 效果演示：![](/assets/上下高度固定，中间自适应.png)
-

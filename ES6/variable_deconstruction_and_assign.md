@@ -4,13 +4,13 @@
 
 ### 基本用法 {#基本用法}
 
-ES6允许按照一定模式从数组和对象中提取值，然后对变量进行赋值。
+ES6 允许按照一定模式从数组和对象中提取值，然后对变量进行赋值。
 
 ```js
 let [a, b, c] = [1, 2, 3];
 ```
 
-上面的代码表示。可以从数组中提取值，按照对应位置对变量赋值。如果结构不成功，变量的值就等于undefined。  
+上面的代码表示。可以从数组中提取值，按照对应位置对变量赋值。如果结构不成功，变量的值就等于 undefined。  
 如果等号的右边不是数组（严格来说是不可遍历的结构）将会报错。
 
 ```js
@@ -23,18 +23,18 @@ let [foo] = null;
 let [foo] = {};
 ```
 
-事实上，只要某种数据结构具有Iterator接口，都可以采用数组形式的解构赋值。
+事实上，只要某种数据结构具有 Iterator 接口，都可以采用数组形式的解构赋值。
 
 ### 默认值 {#默认值}
 
-解构赋值允许指定默认值。ES6内部使用严格相等运算符（===）判断一个位置是否有值。所以，如果一个数组成员不严格等于undefined，默认值是不会生效的。
+解构赋值允许指定默认值。ES6 内部使用严格相等运算符（===）判断一个位置是否有值。所以，如果一个数组成员不严格等于 undefined，默认值是不会生效的。
 
 ```js
 let [x = 1] = [undefined];
-x // 1
+x; // 1
 
 let [x = 1] = [null];
-x // null，因为Null不严格等于undefined
+x; // null，因为Null不严格等于undefined
 ```
 
 ### 对象的解构赋值 {#对象的解构赋值}
@@ -42,29 +42,29 @@ x // null，因为Null不严格等于undefined
 对象的结构与数组有一点不同。数组的元素是按次序排列的，变量的取值是由它的位置决定的；对对象的属性没有次序，变量必须与属性同名才能取到正确的值。
 
 ```js
-let { bar, foo } = { foo: "aaa", bar: "bbb" };
-foo // "aaa"
-bar // "bbb"
+let { bar, foo } = { foo: 'aaa', bar: 'bbb' };
+foo; // "aaa"
+bar; // "bbb"
 ```
 
 对象的解构赋值的内部机制是先找到同名属性，然后再赋值给对应的变量。
 
 ```js
-let { foo: baz } = { foo: "aaa", bar: "bbb" };
-baz // "aaa"
-foo // error: foo is not defined
+let { foo: baz } = { foo: 'aaa', bar: 'bbb' };
+baz; // "aaa"
+foo; // error: foo is not defined
 ```
 
-上面代码中，foo是匹配的模式，baz才是变量。真正被赋值的是变量baz，而不是模式foo。
+上面代码中，foo 是匹配的模式，baz 才是变量。真正被赋值的是变量 baz，而不是模式 foo。
 
-默认值生效的条件：对象的属性值严格等于undefined。
+默认值生效的条件：对象的属性值严格等于 undefined。
 
 ```js
-var {x = 3} = {x: undefined};
-x // 3
+var { x = 3 } = { x: undefined };
+x; // 3
 
-var {x = 3} = {x: null};
-x // null
+var { x = 3 } = { x: null };
+x; // null
 ```
 
 ## 字符串的解构赋值 {#字符串的解构赋值}
@@ -73,18 +73,18 @@ x // null
 
 ```js
 const [a, b, c, d, e] = 'hello';
-a // "h"
-b // "e"
-c // "l"
-d // "l"
-e // "o"
+a; // "h"
+b; // "e"
+c; // "l"
+d; // "l"
+e; // "o"
 ```
 
-类似数组的对象都有一个length属性，还可以对这个属性进行解构赋值。
+类似数组的对象都有一个 length 属性，还可以对这个属性进行解构赋值。
 
 ```js
-let {length : len} = 'hello';
-len // 5
+let { length: len } = 'hello';
+len; // 5
 ```
 
 ## 数值和布尔值的解构赋值 {#数值和布尔值的解构赋值}
@@ -92,18 +92,18 @@ len // 5
 解构赋值时，如果等号右边是数值和布尔值，则会先转为对象。
 
 ```js
-let {toString: s} = 123;
-s === Number.prototype.toString // true
+let { toString: s } = 123;
+s === Number.prototype.toString; // true
 
-let {toString: s} = true;
-s === Boolean.prototype.toString // true
+let { toString: s } = true;
+s === Boolean.prototype.toString; // true
 ```
 
 解构赋值的规则：只要等号右边的值不是对象或数组，就先将其转为对象。
 
 ## 函数参数的解构赋值 {#函数参数的解构赋值}
 
-undefined会触发函数参数的默认值。
+undefined 会触发函数参数的默认值。
 
 ```js
 [1, undefined, 3].map((x = 'yes') => x);
@@ -127,10 +127,7 @@ undefined会触发函数参数的默认值。
 1. 交换变量的值
 2. 从函数返回多个值
 3. 函数参数的定义
-4. 提取JSON数据
+4. 提取 JSON 数据
 5. 函数参数的默认值
-6. 遍历Map结构
+6. 遍历 Map 结构
 7. 输入模块的指定方法
-
-
-

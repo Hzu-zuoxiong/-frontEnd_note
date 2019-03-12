@@ -80,7 +80,6 @@
 
 ![](../assets/browser/chrome_debug_$0)
 
-
 ### 2、`$` 和 `$$`
 
 &emsp;&emsp;如果没有在 `App` 中定义过 `$` 变量 (例如 `jQuery` )的话，它在 `console` 中就是 `document.querySelector` 的别名。`$$` 是 `document.QuerySelectorAll` 的别名，并且它返回的是：一个节点的数组 ，而不是一个 `Node list`。本质上来说 `Array.from(document.querySelectorAll('div')) === $$('div')`。
@@ -133,7 +132,7 @@
 
 ### 1、检查代码 `coverage`
 
-&emsp;&emsp;使用 `coverage` 面板来获得关于冗余代码的摘要-细节信息。使用 `Drawer` 菜单或者 `Command` 菜单来打开它。`DevTools` 的 `coverage` 工具可以跟踪当前加载的 `JS` 和 `CSS` 文件的哪些行正在被执行 ，并显示未使用字节的百分比 。它用绿色的线条标记运行和用红色的线条标记未运行 
+&emsp;&emsp;使用 `coverage` 面板来获得关于冗余代码的摘要-细节信息。使用 `Drawer` 菜单或者 `Command` 菜单来打开它。`DevTools` 的 `coverage` 工具可以跟踪当前加载的 `JS` 和 `CSS` 文件的哪些行正在被执行 ，并显示未使用字节的百分比 。它用绿色的线条标记运行和用红色的线条标记未运行
 
 ![](../assets/browser/chrome_debug_coverage)
 
@@ -142,6 +141,5 @@
 &emsp;&emsp;使用 `DevTools' Drawer` 中的更改工具。它不仅会使用差异形式的变化（像 `Git` 这样的源控制工具一样）向你展示，同时还可以撤销它们。
 
 ![](../assets/browser/chrome_debug_changes)
-
 
 > 总结自掘金小册 [《你不知道的 Chrome 调试技巧》](https://juejin.im/book/5c526902e51d4543805ef35e)

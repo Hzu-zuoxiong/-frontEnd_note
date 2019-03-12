@@ -51,7 +51,3 @@ b.onmessage = function (event) {
   event.data.list.push('C')    // 将影响到页面A中的 list 对象。
 }
 ```
-
-
-
-

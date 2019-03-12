@@ -1,4 +1,4 @@
-# CSS实现一行居中，多行左对齐
+# CSS 实现一行居中，多行左对齐
 
 想要的效果：
 
@@ -12,13 +12,13 @@
 
 ## 思路：
 
-当文字为一行时，则p的宽度小于div的宽度，p标签居中显示在盒子内，文字也就居中；
+当文字为一行时，则 p 的宽度小于 div 的宽度，p 标签居中显示在盒子内，文字也就居中；
 
-当文字大于一行时，p的宽度和div的宽度一样，文字显示为左对齐。
+当文字大于一行时，p 的宽度和 div 的宽度一样，文字显示为左对齐。
 
 ### display:inline-block
 
-display: inline-block 使p的宽度根据文字的宽度进行伸缩。
+display: inline-block 使 p 的宽度根据文字的宽度进行伸缩。
 
 ```css
 <!DOCTYPE html>
@@ -56,26 +56,26 @@ display: inline-block 使p的宽度根据文字的宽度进行伸缩。
 
 ### display:table
 
-利用未知宽度的table可以左右对齐。
+利用未知宽度的 table 可以左右对齐。
 
 ```css
 .content {
-	float: left;
-	margin-left: 5px;
-	width: 200px;
-	height: 100px;
-	border: 1px solid red;
+  float: left;
+  margin-left: 5px;
+  width: 200px;
+  height: 100px;
+  border: 1px solid red;
 }
 
 .content > p {
-	display: table;
-	margin: 0 auto;
+  display: table;
+  margin: 0 auto;
 }
 ```
 
 ### 利用图层遮盖
 
-核心是利用绝对定位和overflow:hidden的方式，将第一行文字转为居中显示，剩下的行数依旧是左对齐。
+核心是利用绝对定位和 overflow:hidden 的方式，将第一行文字转为居中显示，剩下的行数依旧是左对齐。
 
 ```css
 <!DOCTYPE html>
@@ -87,8 +87,8 @@ display: inline-block 使p的宽度根据文字的宽度进行伸缩。
         .content{
             position: relative;
             float: left;
-            width:140px; 
-            height:60px; 
+            width:140px;
+            height:60px;
             margin-right: 5px;
             border: 1px solid red;
         }
@@ -116,6 +116,3 @@ display: inline-block 使p的宽度根据文字的宽度进行伸缩。
     </body>
 </html>
 ```
-
-
-
