@@ -62,7 +62,7 @@ BFC 全称为 Block Formatting Context，即块格式化上下文。块格式化
 
 给黑盒设置 overflow: hidden 创建 BFC：
 
-```
+```css
 .BFC {
         overflow: hidden;
 }
@@ -77,10 +77,10 @@ BFC 全称为 Block Formatting Context，即块格式化上下文。块格式化
 
 为绿盒创建 BFC：
 
-```
+```html
 <div class="box BFC">
-    <div class="left"></div>
-    <div class="right BFC"></div>
+  <div class="left"></div>
+  <div class="right BFC"></div>
 </div>
 ```
 
@@ -89,6 +89,22 @@ BFC 全称为 Block Formatting Context，即块格式化上下文。块格式化
 ## 总结
 
 在实际中，利用 BFC 可以闭合浮动，防止与浮动元素重叠，也可以利用 BFC 包含一个元素，防止这个元素与 BFC 外的元素发生 margin 坍塌。
+
+### `BFC` 解决边距重叠问题
+
+当相邻元素都设置了 `margin` 边距时，`margin` 将取最大值，舍弃小值。为了不让边距重叠，可以给子元素加一个父元素，并设置该父元素为 `BFC：overflow: hidden;`
+
+```html
+<div class="box" id="box">
+  <p>Lorem ipsum dolor sit.</p>
+
+  <div style="overflow: hidden;">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+
+  <p>Lorem ipsum dolor sit.</p>
+</div>
+```
 
 ## 参考：
 
