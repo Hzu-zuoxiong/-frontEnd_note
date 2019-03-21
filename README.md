@@ -75,5 +75,6 @@
   - [Weex 事例对象](weex/Weex_instance_variables.md)
   - [Weex BroadcastChannel](weex/Weex_BroadcastChannel.md)
   - `Weex` 实际应用
+    - [Weex 常用知识点](weex/practical_application/Weex_PitPoint.md)
     - [三端图片加载](weex/practical_application/load_pictures.md)
     - [离线加载本地字体图片](weex/practical_application/load_fonts_file.md)
