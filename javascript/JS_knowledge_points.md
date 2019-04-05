@@ -145,3 +145,32 @@ xhr.onreadystatechange = function() {
   }
 };
 ```
+
+- 判断一个对象是否为空对象
+
+踩坑：`Boolean({}) === true`
+
+1. 最常见的思路，`for in` 遍历属性
+```js
+function isObjEmpty(obj) {
+  for (let key in obj) {
+    return false;
+  }
+  return true;
+}
+```
+
+2. 通过 `JSON.stringify` 判断
+
+```js
+function isObjEmpty(obj) {
+  return JSON.stringify(obj) === '{}' ? true : false;
+}
+```
+3. 使用 `ES6` 新增方法 `Object.keys()`
+
+```js
+function isObjEmpty(obj) {
+  return Object.keys(obj).length ? false : true;
+}
+```
