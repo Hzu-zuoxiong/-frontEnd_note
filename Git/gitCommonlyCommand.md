@@ -1,3 +1,5 @@
+# `Git` 常用命令
+
 ## `Git` 配置
 
 可以通过 `git config -l` 查看 Git 的相关配置
@@ -93,6 +95,50 @@ git reset --hard <commit id>
 ```
 // 当前分支合并主分支
 git merge master
+```
+
+## `Git` 常见文件
+
+### `.gitkeep` 文件
+
+`Git` 是不允许提交一个空的目录到版本库上的,可以在空的文件夹里面建立一个 `.gitkeep` 文件，然后提交去即可。其实在 `Git` 中 `.gitkeep` 就是一个占位符。
+
+```
+// 创建 .gitkeep 文件
+touch .gitkeep
+```
+
+### `.gitignore` 文件
+
+当我们需要将一个项目提交到 `Git` 时，并不是所有的文件都需要提交，比如一些自动生成的文件，这时候就可以使用 `.gitignore` 来忽略一些不需要提交的文件。
+
+```
+// 举例子：
+
+.DS_Store
+node_modules
+/dist
+
+/tests/e2e/videos/
+/tests/e2e/screenshots/
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
 ```
 
 ## `Git` 日常开发流程
