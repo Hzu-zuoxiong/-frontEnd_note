@@ -21,6 +21,8 @@
     - [上下高度固定，中间自适应](css/three_column_layout/up_and_down_set_high.md)
   - 屏幕适配
     - [iphoneX 适配](css/screen_fit/iphoneX_adaptation.md)
+- `Git`
+  - [Git 常用命令](Git/gitCommonlyCommand.md)
 - `JavaScript`
   - [JavaScript 知识点](javascript/JS_knowledge_points.md)
   - [变量提升](javascript/improve_variable.md)
@@ -66,6 +68,7 @@
   - [Vue 知识点](vue/vuekao-dian.md)
   - [Vue 响应式原理](vue/vuexiang-ying-shi-yuan-li.md)
   - [MVVM](vue/mvvm.md)
+  - [Vue-cli3.0 创建项目](vue/initProject.md)
 - `tools`
   - [markdown 生成目录结构](tools/generateFileDir.md)
 - `Weex`
