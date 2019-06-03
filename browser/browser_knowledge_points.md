@@ -1,5 +1,14 @@
 # 浏览器考点
 
+- 简单说一下浏览器本地存储是怎样的
+
+```
+HTML5的Web Storage包括两种存储方式：sessionStorage和localStorage
+
+sessionStorage:不是一种持久化的本地存储，仅仅是会话级别的存储。
+localStorage：用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。
+```
+
 - 介绍下你对浏览器内核的理解
 
 ```
