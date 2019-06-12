@@ -50,9 +50,25 @@ git push origin test:remote-test
 git push origin :remote-test     ===     git push origin --delete remote-test
 ```
 
+## 统计项目
+
+统计项目各个成员 `commit` 的情况
+```
+git shortlog -sn
+
+// 不包含 merge commit
+git shortlog -sn --no-merges
+```
+
 ## `checkout`
 
 ```
+// 切换分支
+git checkout <分支名>
+
+// 快速切换最近的一次分支
+git checkout -
+
 // 切换到某个历史版本
 git checkout <commit id>
 
@@ -95,6 +111,9 @@ git reset --hard <commit id>
 ```
 // 当前分支合并主分支
 git merge master
+
+// 快速合并最近的一次分支
+git merge -
 ```
 
 ## `Git` 常见文件
