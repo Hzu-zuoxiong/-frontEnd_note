@@ -40,16 +40,6 @@ async function f() {
   await Promise.reject("出错了");
   await Promise.resolve("hello world"); // 不会执行
 }
-
-// try catch 捕获错误
-async function f() {
-  try {
-    await Promise.reject("出错了");
-  } catch (e) {
-    console.log(e);
-  }
-  return await Promise.resolve("hello world");
-}
 ```
 
 `async` 函数返回的 `Promise` 对象，必须等到内部所有 `await` 命令的 `Promise` 对象执行完，才会发生状态改变。
@@ -141,6 +131,44 @@ async function async1() {
     console.log("async1 end");
   });
 }
+```
+
+## 注意点：
+
+在不同的 node 环境下，可能会有不一样的执行顺序。
+
+```javascript
+const p = Promise.resolve();
+(async => {
+	await p;
+	console.log('after: await');
+})();
+p.then(() => console.log('tick: a'))
+ .then(() => console.log('tick: b'));
+
+
+/**
+ *  node 8.0.0 输出
+ *	after:await
+ *	tick: a
+ *  tick: b
+ */
+
+
+/**
+ *  node 10.0.0 输出
+ *	tick: a
+ *  tick: b
+ *	after:await
+ */
+
+
+/**
+ *  node 12.0.0 输出
+ *	after:await
+ *	tick: a
+ *  tick: b
+ */
 ```
 
 ## 参考链接：
